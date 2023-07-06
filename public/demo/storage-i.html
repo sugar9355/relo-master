@@ -1,0 +1,2775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Location Details</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/1cb4e2d48a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" />
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/style.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/hover-min.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/animate.css">    
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/main/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/air-datepicker/dist/css/datepicker.min.css">
+</head>
+<body>
+  <!--START HEADER-->
+
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand clip-right-chevron" href="/">
+        <img src="http://relo.thesiriussolutions.com/asset/img/Capture.png" alt="Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="http://relo.thesiriussolutions.com/payment">Payment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Past</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Creadits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>          
+        </ul>
+
+        <div class="dropdown ml-lg-3">
+          <a class="btn btn-warning dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Hi, arsal
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" class="/trips" href="/dashboard">Overview</a>
+            <form id="logout-form" action="http://relo.thesiriussolutions.com/logout" method="POST"
+            style="display: none;"><input type="hidden" name="_token" value="7PoJD9uexqzgTns0Z0Ml9aglC7x2KwAykuj4ihQI"></form>        
+            <a class="dropdown-item" href="http://relo.thesiriussolutions.com/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="container-fluid">
+    <div class="row text-center header-breadcumb">
+      <div class="breadcrumb w-100 d-md-flex">
+
+        <a class="breadcrumb__step  bg-warning  col" href="/booking/175/1" style="text-decoration: none;">Services</a>
+        <a class="breadcrumb__step  col" href="/booking/175/4" style="text-decoration: none;">Location</a>
+
+        <a class="breadcrumb__step  breadcrumb__step--active  col" href="/booking/175/2" style="text-decoration: none;">Inventory</a>
+        <a class="breadcrumb__step  col" href="/booking/175/6" style="text-decoration: none;">Dates</a>
+        <a class="breadcrumb__step  col" href="/booking/175/7" style="text-decoration: none;">Summary</a>
+
+
+      </div>
+    </div>
+  </div>
+
+    <section class="content">
+      
+
+<style>
+  .list-group .list-group-item:before{
+    background-color: var(--dark);
+  }
+  .animated {
+    -webkit-animation-fill-mode: inherit;
+    animation-fill-mode: inherit;
+}
+a[aria-expanded="true"] .fa-plus-square:before {
+    content: "\f146";
+}
+</style>
+
+ <div class="container my-5"> 
+
+
+
+<div class="row">
+
+  <div class="col-md-3 pr-0"> 
+
+    <div class="card card-body p-0 bg-dark h-100">
+      <h5 class="m-3">Select Category</h5>
+      <div class="list-group">
+      
+        
+                  <form action="/booking/162" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="_token" value="bC5NH3SFL9yU78LSiixJfgt7OraQqedibK2g7mcj">
+            
+                                    
+            <button type="submit" name="btn_preset" value="3,4,12,13" class="list-group-item list-group-item-action hvr-grow list-group-item-action bg-transparent text-white">           
+              <i class="fas fa-couch mr-2"></i>
+              2 Bed Room
+              <span class="badge bg-info float-right">4</span>
+            </button>
+            
+                                    
+            <button type="submit" name="btn_preset" value="3,4,12" class="list-group-item list-group-item-action hvr-grow list-group-item-action bg-transparent text-white">            
+              <i class="fas fa-couch mr-2"></i>
+              1 Bed Room
+              <span class="badge bg-info float-right">3</span>
+            </button>
+            
+                                    
+            <button type="submit" name="btn_preset" value="3,4,11,12,13" class="list-group-item list-group-item-action hvr-grow list-group-item-action bg-transparent text-white">            
+              <i class="fas fa-couch mr-2"></i>
+              Bed Room
+              <span class="badge bg-info float-right">5</span>
+            </button>
+            
+                                    
+            <button type="submit" name="btn_preset" value="3,4,5" class="list-group-item list-group-item-action hvr-grow list-group-item-action bg-transparent text-white">           
+              <i class="fas fa-couch mr-2"></i>
+              All
+              <span class="badge bg-info float-right">3</span>
+            </button>
+            
+                                    
+            <button type="submit" name="btn_preset" value="3" class="list-group-item list-group-item-action hvr-grow list-group-item-action bg-transparent text-white">           
+              <i class="fas fa-couch mr-2"></i>
+              Bed Only
+              <span class="badge bg-info float-right">1</span>
+            </button>
+            
+                      </form>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+
+  <div class="col-md-9">
+    <div class="card">
+      <div class="card-header">
+        <h6 class="card-title">Add Inventory Items</h6>
+
+        <div class="row">
+          <div class="col-md-10">
+            <form action="/booking/162" method="post" enctype="multipart/form-data" class="m-0">
+            <input type="hidden" name="_token" value="bC5NH3SFL9yU78LSiixJfgt7OraQqedibK2g7mcj">
+              <div class="input-group w-100">
+                <input name="item_search" type="text" class="form-control" value="" placeholder="Search...">
+                <div class="input-group-append">
+                  <button type="submit" name="btn_search" value="true" class="btn btn-dark"><i class="fas fa-search"></i></button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col text-right">
+            <button class="btn bg-warning btn-block" data-toggle="modal" data-target="#create_item"><i class="fas fa-plus"></i> Create</button>
+            <div id="create_item" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="m-0">Create New Item</h5>
+<button type="button" class="close" data-dismiss="modal">×</button>
+
+</div>
+<div class="modal-body">
+
+<form action="/booking/162" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="_token" value="bC5NH3SFL9yU78LSiixJfgt7OraQqedibK2g7mcj">
+  
+    <input name="create_item" type="hidden" class="btn btn-success" value="true">
+    <div class="form-row">
+        <div class="form-group col-md-6 mb-0">
+          <strong>Inventroy Item Name:</strong> <input class="form-control" min="0" type="text" name="name" value="" required="">
+        </div>
+        <div class="form-group col-md-6 mb-0">
+                  
+          <strong>Item Category Name:</strong> 
+          <select name="category" class="form-control" required="">
+                    <option value="15">Small</option>
+                    <option value="14">Category 1</option>
+                    <option value="13">BULKY</option>
+                    </select>
+                </div>
+    </div>
+    <hr>
+    <div class="form-group col-md-12 d-flex mb-0 justify-content-center">
+        <div class="form-group col-md-2 text-center mb-0"><strong>breadth</strong></div> 
+        <div class="form-group col-md-2 text-center mb-0"><strong>Height</strong></div> 
+        <div class="form-group col-md-2 text-center mb-0"><strong>Width</strong></div> 
+        
+        <div class="form-group col-md-2 text-center mb-0"><strong>Volume</strong></div> 
+        <div class="form-group col-md-2 text-center mb-0"><strong>Weight</strong></div> 
+    </div>
+    <div class="form-group col-md-12 d-flex mb-0 justify-content-center">
+        <div class="form-group col-md-2 mb-0">
+          <input class="form-control mb-0" min="0" type="number" name="breadth" value="10" required="">
+        </div> 
+        <div class="form-group col-md-2 mb-0">
+          <input class="form-control mb-0" min="0" type="number" name="height" value="10" required="">
+        </div>
+        <div class="form-group col-md-2 mb-0">
+          <input class="form-control mb-0" min="0" type="number" name="width" value="10" required="">
+        </div>
+        
+        <div class="form-group col-md-2 mb-0">
+          <input class="form-control mb-0" min="0" type="number" name="volume" value="10" required="" disabled="">
+        </div>
+        
+        <div class="form-group col-md-2 mb-0">
+          <input class="form-control mb-0" min="0" type="number" name="weight" value="10" required="">
+        </div>
+    </div>
+    <hr>
+    <div class="form-row">
+    <!-- 
+      <table>
+      <tr class="text-center"><th></th><th>Flight 0</th><th>Flight 1</th><th>Flight 2</th><th>Flight 3</th><th>Flight 4</th><th>Flight 5</th><th>Flight 6</th></tr>
+      <tr>
+        <td><strong>MIN</strong></td>
+        <td><input class="form-control" min=0 type="number" name="time_0_min" value="1" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_1_min" value="1" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_2_min" value="1" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_3_min" value="1" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_4_min" value="1" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_5_min" value="1" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_6_min" value="1" required></td>
+      </tr>
+      <tr>
+        <td><strong>MED</strong></td>
+        <td><input class="form-control" min=0 type="number" name="time_0_med" value="2" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_1_med" value="2" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_2_med" value="2" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_3_med" value="2" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_4_med" value="2" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_5_med" value="2" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_6_med" value="2" required></td>
+      </tr>
+      <tr>
+        <td><strong>MAX</strong></td>
+        <td><input class="form-control" min=0 type="number" name="time_0_max" value="3" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_1_max" value="3" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_2_max" value="3" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_3_max" value="3" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_4_max" value="3" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_5_max" value="3" required></td>
+        <td><input class="form-control" min=0 type="number" name="time_6_max" value="3" required></td>
+      </tr>
+      </table>
+        -->
+    </div>
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-12"><strong>Image Upload</strong></div> 
+    </div>
+    <div class="form-row">
+     <div class="custom-file">
+      <input type="file" class="custom-file-input" name="picture" id="picture">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+      </div>
+    </div>
+    <hr>
+    <!--
+    <table width="100%">
+      <tr>
+      <td width="60%">A - basic metal frame</td>
+      <td class="text-right"><input class="form-control" type="number" name="R_A"  required id="R_A" placeholder="Ranking Time of Selected Inventory Item" value="1"></td><td width="30%"></td></tr>
+      <tr>
+      <td width="60%">B - locking joints, no tools required</td>
+      <td class="text-right"><input class="form-control" type="number" name="R_B"  required id="R_B" placeholder="Ranking Time of Selected Inventory Item" value="1"></td><td width="30%"></td></tr>
+      <tr>
+      <td width="60%">C - requires 1 tool (i.e allen key)</td>
+      <td class="text-right"><input class="form-control" type="number" name="R_C"  required id="R_C" placeholder="Ranking Time of Selected Inventory Item" value="1"></td><td width="30%"></td></tr>
+      <tr>
+      <td width="60%">D - requires multiple tools and has many pieces</td>
+      <td class="text-right"><input class="form-control" type="number" name="R_D"  required id="R_D" placeholder="Ranking Time of Selected Inventory Item" value="1"></td width="30%"><td></td></tr>
+      <tr>
+      <td width="60%">E - full IKEA out-of-box assembly; 4-poster bed trundle</td>
+      <td class="text-right"><input class="form-control" type="number" name="R_E"  required id="R_E" placeholder="Ranking Time of Selected Inventory Item" value="1"></td><td width="30%"></td></tr>
+      
+    </table>
+    -->
+    <div class="form-group">
+      <label class="form-label"><strong>What needs to be disassembled/reassembled?</strong><br>
+          Please specify the item and the level of complexity from 1-5, i.e "bed frame, level 2"</label>
+        
+    </div>
+    <table width="100%">
+      <tbody><tr>
+      <td width="60%">A - basic metal frame</td>
+      <td class="text-right"><input class="form-control" type="checkbox" name="R_A" required="" id="R_A" placeholder="Ranking Time of Selected Inventory Item" value="1"></td><td width="30%"></td></tr>
+      <tr>
+      <td width="60%">B - locking joints, no tools required</td>
+      <td class="text-right"><input class="form-control" type="checkbox" name="R_B" required="" id="R_B" placeholder="Ranking Time of Selected Inventory Item" value="1"></td><td width="30%"></td></tr>
+      <tr>
+      <td width="60%">C - requires 1 tool (i.e allen key)</td>
+      <td class="text-right"><input class="form-control" type="checkbox" name="R_C" required="" id="R_C" placeholder="Ranking Time of Selected Inventory Item" value="1"></td><td width="30%"></td></tr>
+      <tr>
+      <td width="60%">D - requires multiple tools and has many pieces</td>
+      <td class="text-right"><input class="form-control" type="checkbox" name="R_D" required="" id="R_D" placeholder="Ranking Time of Selected Inventory Item" value="1"></td><td></td></tr>
+      <tr>
+      <td width="60%">E - full IKEA out-of-box assembly; 4-poster bed trundle</td>
+      <td class="text-right"><input class="form-control" type="checkbox" name="R_E" required="" id="R_E" placeholder="Ranking Time of Selected Inventory Item" value="1"></td><td width="30%"></td></tr>
+      
+    </tbody></table>
+
+    <hr>
+    
+    
+    <hr>
+    
+  <div class="modal-footer">
+    <button name="btn_submit" type="submit" class="btn btn-success" value="5">Add Item</button>
+    <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">Close</button>
+  </div>
+</form>
+</div>
+</div>
+
+</div>
+</div>
+
+          </div>
+        </div>        
+        
+      </div>
+      
+      <div class="card-body">
+      
+        <!-- Grid -->
+          <div class="row">
+            
+          
+            <div class="col-xl-2 col-sm-3">
+              <div class="card card-body bg-light text-center p-2 mb-3">
+                                  <a href="#" data-toggle="modal" data-target="#item_add_3">
+                    <img src="/uploads/inventory/3_download (4).jpg" class="card-img" height="60" alt="">
+                    <span class="card-img-actions-overlay card-img">
+                      <i class="icon-plus3"></i>
+                    </span>
+                  </a>
+                  
+
+                <small class="pt-2">Bed</small>               
+              </div>
+            </div>
+            
+            <div id="item_add_3" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="m-0">Bed</h3>
+<button type="button" class="close" data-dismiss="modal">×</button>
+
+</div>
+<div class="modal-body">
+
+<form action="/booking/162" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="_token" value="bC5NH3SFL9yU78LSiixJfgt7OraQqedibK2g7mcj">
+
+  <input type="hidden" name="item_id" value="3">
+  <input type="hidden" name="item_name" value="Bed">
+  <input type="hidden" name="item_image" value="default.png">
+  <input type="hidden" name="file_path" value="/uploads/inventory/3_download (4).jpg">
+  
+  
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <strong>Quantity :</strong> <input class="form-control" min="1" max="10" type="number" name="quantity" value="1">
+        </div>
+        <div class="form-group col-md-6">
+                      <strong>Item Category Name: 14</strong> 
+            <select name="category" class="form-control">
+                        <option value="15">Small</option>
+                        <option value="14" selected="">Category 1</option>
+                        <option value="13">BULKY</option>
+                        </select>
+                  </div>
+    </div>
+    
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-3 text-center"><strong>Height</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Width</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Breadth</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Weight</strong></div> 
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="height" value="12">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="width" value="12">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="breadth" value="12">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="weight" value="12">
+        </div> 
+    </div>
+  
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-12"><strong>Image Upload</strong></div> 
+    </div>
+    <div class="form-row">
+     <div class="custom-file">
+      <input type="file" class="custom-file-input" name="picture" id="picture">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+      </div>
+    </div>
+    <hr>
+    
+    <div class="form-group">
+      <label class="form-label"><strong>What needs to be disassembled/reassembled?</strong><br>
+          Please specify the item and the level of complexity from 1-5, i.e "bed frame, level 2"</label>
+                  <select name="ranking" class="form-control">
+                        <option value="1">A - basic metal frame</option>
+                        <option value="2">B - locking joints, no tools required</option>
+                        <option value="3">C - requires 1 tool (i.e allen key)</option>
+                        <option value="4">D - requires multiple tools and has many pieces</option>
+                        <option value="5">E - full IKEA out-of-box assembly; 4-poster bed trundle</option>
+                    </select>
+            </div>
+    <hr>
+    <div class="form-row jjjj">     
+      
+                  
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                    
+                
+      
+    </div>
+    <hr>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Pickup Location of Seleted item</strong></label>
+                  <select name="pick_up_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Drop off Location of Seleted item</strong></label>
+                  <select name="drop_off_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    
+  
+  <div class="modal-footer">
+    <button name="btn_submit" type="submit" class="btn btn-success" value="5">Add Item</button>
+    <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">Close</button>
+  </div>
+</form>
+</div>
+</div>
+
+</div>
+</div>          
+            
+          
+            <div class="col-xl-2 col-sm-3">
+              <div class="card card-body bg-light text-center p-2 mb-3">
+                                  <a href="#" data-toggle="modal" data-target="#item_add_4">
+                    <img src="/uploads/inventory/4_images.jpg" class="card-img" height="60" alt="">
+                    <span class="card-img-actions-overlay card-img">
+                      <i class="icon-plus3"></i>
+                    </span>
+                  </a>
+                  
+
+                <small class="pt-2">Table</small>               
+              </div>
+            </div>
+            
+            <div id="item_add_4" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="m-0">Table</h3>
+<button type="button" class="close" data-dismiss="modal">×</button>
+
+</div>
+<div class="modal-body">
+
+<form action="/booking/162" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="_token" value="bC5NH3SFL9yU78LSiixJfgt7OraQqedibK2g7mcj">
+
+  <input type="hidden" name="item_id" value="4">
+  <input type="hidden" name="item_name" value="Table">
+  <input type="hidden" name="item_image" value="default.png">
+  <input type="hidden" name="file_path" value="/uploads/inventory/4_images.jpg">
+  
+  
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <strong>Quantity :</strong> <input class="form-control" min="1" max="10" type="number" name="quantity" value="1">
+        </div>
+        <div class="form-group col-md-6">
+                      <strong>Item Category Name: </strong> 
+            <select name="category" class="form-control">
+                        <option value="15">Small</option>
+                        <option value="14">Category 1</option>
+                        <option value="13">BULKY</option>
+                        </select>
+                  </div>
+    </div>
+    
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-3 text-center"><strong>Height</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Width</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Breadth</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Weight</strong></div> 
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="height" value="10">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="width" value="10">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="breadth" value="10">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="weight" value="10">
+        </div> 
+    </div>
+  
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-12"><strong>Image Upload</strong></div> 
+    </div>
+    <div class="form-row">
+     <div class="custom-file">
+      <input type="file" class="custom-file-input" name="picture" id="picture">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+      </div>
+    </div>
+    <hr>
+    
+    <div class="form-group">
+      <label class="form-label"><strong>What needs to be disassembled/reassembled?</strong><br>
+          Please specify the item and the level of complexity from 1-5, i.e "bed frame, level 2"</label>
+                  <select name="ranking" class="form-control">
+                        <option value="1">A - basic metal frame</option>
+                        <option value="2">B - locking joints, no tools required</option>
+                        <option value="3">C - requires 1 tool (i.e allen key)</option>
+                        <option value="4">D - requires multiple tools and has many pieces</option>
+                        <option value="5">E - full IKEA out-of-box assembly; 4-poster bed trundle</option>
+                    </select>
+            </div>
+    <hr>
+    <div class="form-row jjjj">     
+      
+                  
+                      
+            
+              <div class="form-group col-md-6"> 
+              
+                  <p><strong>Q). What kinds of Table is it? </strong></p>
+
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="answer[26]-yes" name="answer[26]" class="custom-control-input">
+                    <label class="custom-control-label" for="answer[26]-yes">Yes</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="answer[26]-no" name="answer[26]" class="custom-control-input">
+                    <label class="custom-control-label" for="answer[26]-no">No</label>
+                  </div>
+              
+              </div>
+              
+            
+                      
+            
+              <div class="form-group col-md-6"> 
+              
+                  <p><strong>Q). How long ? </strong></p>
+
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="answer[27]-yes" name="answer[27]" class="custom-control-input">
+                    <label class="custom-control-label" for="answer[27]-yes">Yes</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="answer[27]-no" name="answer[27]" class="custom-control-input">
+                    <label class="custom-control-label" for="answer[27]-no">No</label>
+                  </div>
+              
+              </div>
+              
+            
+                      
+              
+            
+                      
+              
+            
+                    
+                
+      
+    </div>
+    <hr>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Pickup Location of Seleted item</strong></label>
+                  <select name="pick_up_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Drop off Location of Seleted item</strong></label>
+                  <select name="drop_off_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    
+  
+  <div class="modal-footer">
+    <button name="btn_submit" type="submit" class="btn btn-success" value="5">Add Item</button>
+    <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">Close</button>
+  </div>
+</form>
+</div>
+</div>
+
+</div>
+</div>          
+            
+          
+            <div class="col-xl-2 col-sm-3">
+              <div class="card card-body bg-light text-center p-2 mb-3">
+                                  <a href="#" data-toggle="modal" data-target="#item_add_10">
+                    <img src="/uploads/inventory/10_download (3).jpg" class="card-img" height="60" alt="">
+                    <span class="card-img-actions-overlay card-img">
+                      <i class="icon-plus3"></i>
+                    </span>
+                  </a>
+                  
+
+                <small class="pt-2">Refrigerator</small>                
+              </div>
+            </div>
+            
+            <div id="item_add_10" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="m-0">Refrigerator</h3>
+<button type="button" class="close" data-dismiss="modal">×</button>
+
+</div>
+<div class="modal-body">
+
+<form action="/booking/162" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="_token" value="bC5NH3SFL9yU78LSiixJfgt7OraQqedibK2g7mcj">
+
+  <input type="hidden" name="item_id" value="10">
+  <input type="hidden" name="item_name" value="Refrigerator">
+  <input type="hidden" name="item_image" value="">
+  <input type="hidden" name="file_path" value="/uploads/inventory/10_download (3).jpg">
+  
+  
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <strong>Quantity :</strong> <input class="form-control" min="1" max="10" type="number" name="quantity" value="1">
+        </div>
+        <div class="form-group col-md-6">
+                      <strong>Item Category Name: 15</strong> 
+            <select name="category" class="form-control">
+                        <option value="15" selected="">Small</option>
+                        <option value="14">Category 1</option>
+                        <option value="13">BULKY</option>
+                        </select>
+                  </div>
+    </div>
+    
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-3 text-center"><strong>Height</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Width</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Breadth</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Weight</strong></div> 
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="height" value="5">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="width" value="12">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="breadth" value="74">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="weight" value="10">
+        </div> 
+    </div>
+  
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-12"><strong>Image Upload</strong></div> 
+    </div>
+    <div class="form-row">
+     <div class="custom-file">
+      <input type="file" class="custom-file-input" name="picture" id="picture">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+      </div>
+    </div>
+    <hr>
+    
+    <div class="form-group">
+      <label class="form-label"><strong>What needs to be disassembled/reassembled?</strong><br>
+          Please specify the item and the level of complexity from 1-5, i.e "bed frame, level 2"</label>
+                  <select name="ranking" class="form-control">
+                        <option value="1">A - basic metal frame</option>
+                        <option value="2">B - locking joints, no tools required</option>
+                        <option value="3">C - requires 1 tool (i.e allen key)</option>
+                        <option value="4">D - requires multiple tools and has many pieces</option>
+                        <option value="5">E - full IKEA out-of-box assembly; 4-poster bed trundle</option>
+                    </select>
+            </div>
+    <hr>
+    <div class="form-row jjjj">     
+      
+                  
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                    
+                
+      
+    </div>
+    <hr>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Pickup Location of Seleted item</strong></label>
+                  <select name="pick_up_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Drop off Location of Seleted item</strong></label>
+                  <select name="drop_off_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    
+  
+  <div class="modal-footer">
+    <button name="btn_submit" type="submit" class="btn btn-success" value="5">Add Item</button>
+    <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">Close</button>
+  </div>
+</form>
+</div>
+</div>
+
+</div>
+</div>          
+            
+          
+            <div class="col-xl-2 col-sm-3">
+              <div class="card card-body bg-light text-center p-2 mb-3">
+                                  <a href="#" data-toggle="modal" data-target="#item_add_11">
+                    <img src="/uploads/inventory/11_download (2).jpg" class="card-img" height="60" alt="">
+                    <span class="card-img-actions-overlay card-img">
+                      <i class="icon-plus3"></i>
+                    </span>
+                  </a>
+                  
+
+                <small class="pt-2">Chair</small>               
+              </div>
+            </div>
+            
+            <div id="item_add_11" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="m-0">Chair</h3>
+<button type="button" class="close" data-dismiss="modal">×</button>
+
+</div>
+<div class="modal-body">
+
+<form action="/booking/162" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="_token" value="bC5NH3SFL9yU78LSiixJfgt7OraQqedibK2g7mcj">
+
+  <input type="hidden" name="item_id" value="11">
+  <input type="hidden" name="item_name" value="Chair">
+  <input type="hidden" name="item_image" value="">
+  <input type="hidden" name="file_path" value="/uploads/inventory/11_download (2).jpg">
+  
+  
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <strong>Quantity :</strong> <input class="form-control" min="1" max="10" type="number" name="quantity" value="1">
+        </div>
+        <div class="form-group col-md-6">
+                      <strong>Item Category Name: </strong> 
+            <select name="category" class="form-control">
+                        <option value="15">Small</option>
+                        <option value="14">Category 1</option>
+                        <option value="13">BULKY</option>
+                        </select>
+                  </div>
+    </div>
+    
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-3 text-center"><strong>Height</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Width</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Breadth</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Weight</strong></div> 
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="height" value="5">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="width" value="12">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="breadth" value="7">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="weight" value="10">
+        </div> 
+    </div>
+  
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-12"><strong>Image Upload</strong></div> 
+    </div>
+    <div class="form-row">
+     <div class="custom-file">
+      <input type="file" class="custom-file-input" name="picture" id="picture">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+      </div>
+    </div>
+    <hr>
+    
+    <div class="form-group">
+      <label class="form-label"><strong>What needs to be disassembled/reassembled?</strong><br>
+          Please specify the item and the level of complexity from 1-5, i.e "bed frame, level 2"</label>
+                  <select name="ranking" class="form-control">
+                        <option value="1">A - basic metal frame</option>
+                        <option value="2">B - locking joints, no tools required</option>
+                        <option value="3">C - requires 1 tool (i.e allen key)</option>
+                        <option value="4">D - requires multiple tools and has many pieces</option>
+                        <option value="5">E - full IKEA out-of-box assembly; 4-poster bed trundle</option>
+                    </select>
+            </div>
+    <hr>
+    <div class="form-row jjjj">     
+      
+                  
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                    
+                
+      
+    </div>
+    <hr>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Pickup Location of Seleted item</strong></label>
+                  <select name="pick_up_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Drop off Location of Seleted item</strong></label>
+                  <select name="drop_off_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    
+  
+  <div class="modal-footer">
+    <button name="btn_submit" type="submit" class="btn btn-success" value="5">Add Item</button>
+    <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">Close</button>
+  </div>
+</form>
+</div>
+</div>
+
+</div>
+</div>          
+            
+          
+            <div class="col-xl-2 col-sm-3">
+              <div class="card card-body bg-light text-center p-2 mb-3">
+                                  <a href="#" data-toggle="modal" data-target="#item_add_12">
+                    <img src="/uploads/inventory/12_download (1).jpg" class="card-img" height="60" alt="">
+                    <span class="card-img-actions-overlay card-img">
+                      <i class="icon-plus3"></i>
+                    </span>
+                  </a>
+                  
+
+                <small class="pt-2">Round Table</small>               
+              </div>
+            </div>
+            
+            <div id="item_add_12" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="m-0">Round Table</h3>
+<button type="button" class="close" data-dismiss="modal">×</button>
+
+</div>
+<div class="modal-body">
+
+<form action="/booking/162" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="_token" value="bC5NH3SFL9yU78LSiixJfgt7OraQqedibK2g7mcj">
+
+  <input type="hidden" name="item_id" value="12">
+  <input type="hidden" name="item_name" value="Round Table">
+  <input type="hidden" name="item_image" value="">
+  <input type="hidden" name="file_path" value="/uploads/inventory/12_download (1).jpg">
+  
+  
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <strong>Quantity :</strong> <input class="form-control" min="1" max="10" type="number" name="quantity" value="1">
+        </div>
+        <div class="form-group col-md-6">
+                      <strong>Item Category Name: </strong> 
+            <select name="category" class="form-control">
+                        <option value="15">Small</option>
+                        <option value="14">Category 1</option>
+                        <option value="13">BULKY</option>
+                        </select>
+                  </div>
+    </div>
+    
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-3 text-center"><strong>Height</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Width</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Breadth</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Weight</strong></div> 
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="height" value="5">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="width" value="12">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="breadth" value="74">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="weight" value="10">
+        </div> 
+    </div>
+  
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-12"><strong>Image Upload</strong></div> 
+    </div>
+    <div class="form-row">
+     <div class="custom-file">
+      <input type="file" class="custom-file-input" name="picture" id="picture">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+      </div>
+    </div>
+    <hr>
+    
+    <div class="form-group">
+      <label class="form-label"><strong>What needs to be disassembled/reassembled?</strong><br>
+          Please specify the item and the level of complexity from 1-5, i.e "bed frame, level 2"</label>
+                  <select name="ranking" class="form-control">
+                        <option value="1">A - basic metal frame</option>
+                        <option value="2">B - locking joints, no tools required</option>
+                        <option value="3">C - requires 1 tool (i.e allen key)</option>
+                        <option value="4">D - requires multiple tools and has many pieces</option>
+                        <option value="5">E - full IKEA out-of-box assembly; 4-poster bed trundle</option>
+                    </select>
+            </div>
+    <hr>
+    <div class="form-row jjjj">     
+      
+                  
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                    
+                
+      
+    </div>
+    <hr>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Pickup Location of Seleted item</strong></label>
+                  <select name="pick_up_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Drop off Location of Seleted item</strong></label>
+                  <select name="drop_off_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    
+  
+  <div class="modal-footer">
+    <button name="btn_submit" type="submit" class="btn btn-success" value="5">Add Item</button>
+    <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">Close</button>
+  </div>
+</form>
+</div>
+</div>
+
+</div>
+</div>          
+            
+          
+            <div class="col-xl-2 col-sm-3">
+              <div class="card card-body bg-light text-center p-2 mb-3">
+                                  <a href="#" data-toggle="modal" data-target="#item_add_13">
+                    <img src="/uploads/inventory/13_download.jpg" class="card-img" height="60" alt="">
+                    <span class="card-img-actions-overlay card-img">
+                      <i class="icon-plus3"></i>
+                    </span>
+                  </a>
+                  
+
+                <small class="pt-2">Square Table</small>                
+              </div>
+            </div>
+            
+            <div id="item_add_13" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="m-0">Square Table</h3>
+<button type="button" class="close" data-dismiss="modal">×</button>
+
+</div>
+<div class="modal-body">
+
+<form action="/booking/162" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="_token" value="bC5NH3SFL9yU78LSiixJfgt7OraQqedibK2g7mcj">
+
+  <input type="hidden" name="item_id" value="13">
+  <input type="hidden" name="item_name" value="Square Table">
+  <input type="hidden" name="item_image" value="">
+  <input type="hidden" name="file_path" value="/uploads/inventory/13_download.jpg">
+  
+  
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <strong>Quantity :</strong> <input class="form-control" min="1" max="10" type="number" name="quantity" value="1">
+        </div>
+        <div class="form-group col-md-6">
+                      <strong>Item Category Name: </strong> 
+            <select name="category" class="form-control">
+                        <option value="15">Small</option>
+                        <option value="14">Category 1</option>
+                        <option value="13">BULKY</option>
+                        </select>
+                  </div>
+    </div>
+    
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-3 text-center"><strong>Height</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Width</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Breadth</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Weight</strong></div> 
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="height" value="5">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="width" value="12">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="breadth" value="7">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="weight" value="10">
+        </div> 
+    </div>
+  
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-12"><strong>Image Upload</strong></div> 
+    </div>
+    <div class="form-row">
+     <div class="custom-file">
+      <input type="file" class="custom-file-input" name="picture" id="picture">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+      </div>
+    </div>
+    <hr>
+    
+    <div class="form-group">
+      <label class="form-label"><strong>What needs to be disassembled/reassembled?</strong><br>
+          Please specify the item and the level of complexity from 1-5, i.e "bed frame, level 2"</label>
+                  <select name="ranking" class="form-control">
+                        <option value="1">A - basic metal frame</option>
+                        <option value="2">B - locking joints, no tools required</option>
+                        <option value="3">C - requires 1 tool (i.e allen key)</option>
+                        <option value="4">D - requires multiple tools and has many pieces</option>
+                        <option value="5">E - full IKEA out-of-box assembly; 4-poster bed trundle</option>
+                    </select>
+            </div>
+    <hr>
+    <div class="form-row jjjj">     
+      
+                  
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                    
+                
+      
+    </div>
+    <hr>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Pickup Location of Seleted item</strong></label>
+                  <select name="pick_up_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Drop off Location of Seleted item</strong></label>
+                  <select name="drop_off_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    
+  
+  <div class="modal-footer">
+    <button name="btn_submit" type="submit" class="btn btn-success" value="5">Add Item</button>
+    <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">Close</button>
+  </div>
+</form>
+</div>
+</div>
+
+</div>
+</div>          
+            
+          
+            <div class="col-xl-2 col-sm-3">
+              <div class="card card-body bg-light text-center p-2 mb-3">
+                                  <a href="#" data-toggle="modal" data-target="#item_add_15">
+                    <img src="/uploads/inventory/15_1-catalog_360.jpg" class="card-img" height="60" alt="">
+                    <span class="card-img-actions-overlay card-img">
+                      <i class="icon-plus3"></i>
+                    </span>
+                  </a>
+                  
+
+                <small class="pt-2">CupBoard</small>                
+              </div>
+            </div>
+            
+            <div id="item_add_15" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="m-0">CupBoard</h3>
+<button type="button" class="close" data-dismiss="modal">×</button>
+
+</div>
+<div class="modal-body">
+
+<form action="/booking/162" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="_token" value="bC5NH3SFL9yU78LSiixJfgt7OraQqedibK2g7mcj">
+
+  <input type="hidden" name="item_id" value="15">
+  <input type="hidden" name="item_name" value="CupBoard">
+  <input type="hidden" name="item_image" value="">
+  <input type="hidden" name="file_path" value="/uploads/inventory/15_1-catalog_360.jpg">
+  
+  
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <strong>Quantity :</strong> <input class="form-control" min="1" max="10" type="number" name="quantity" value="1">
+        </div>
+        <div class="form-group col-md-6">
+                      <strong>Item Category Name: 12</strong> 
+            <select name="category" class="form-control">
+                        <option value="15">Small</option>
+                        <option value="14">Category 1</option>
+                        <option value="13">BULKY</option>
+                        </select>
+                  </div>
+    </div>
+    
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-3 text-center"><strong>Height</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Width</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Breadth</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Weight</strong></div> 
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="height" value="10">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="width" value="10">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="breadth" value="10">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="weight" value="10">
+        </div> 
+    </div>
+  
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-12"><strong>Image Upload</strong></div> 
+    </div>
+    <div class="form-row">
+     <div class="custom-file">
+      <input type="file" class="custom-file-input" name="picture" id="picture">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+      </div>
+    </div>
+    <hr>
+    
+    <div class="form-group">
+      <label class="form-label"><strong>What needs to be disassembled/reassembled?</strong><br>
+          Please specify the item and the level of complexity from 1-5, i.e "bed frame, level 2"</label>
+                  <select name="ranking" class="form-control">
+                        <option value="1">A - basic metal frame</option>
+                        <option value="2">B - locking joints, no tools required</option>
+                        <option value="3">C - requires 1 tool (i.e allen key)</option>
+                        <option value="4">D - requires multiple tools and has many pieces</option>
+                        <option value="5">E - full IKEA out-of-box assembly; 4-poster bed trundle</option>
+                    </select>
+            </div>
+    <hr>
+    <div class="form-row jjjj">     
+      
+                  
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                    
+                
+      
+    </div>
+    <hr>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Pickup Location of Seleted item</strong></label>
+                  <select name="pick_up_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Drop off Location of Seleted item</strong></label>
+                  <select name="drop_off_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    
+  
+  <div class="modal-footer">
+    <button name="btn_submit" type="submit" class="btn btn-success" value="5">Add Item</button>
+    <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">Close</button>
+  </div>
+</form>
+</div>
+</div>
+
+</div>
+</div>          
+            
+          
+            <div class="col-xl-2 col-sm-3">
+              <div class="card card-body bg-light text-center p-2 mb-3">
+                                <a href="/no_item.jpg" data-popup="lightbox">
+                    <img src="/no_item.jpg" class="card-img" height="60" alt="">
+                    <span class="card-img-actions-overlay card-img">
+                      <i class="icon-zoomin3"></i>
+                    </span>
+                  </a>
+                  
+
+                <small class="pt-2">Trolly</small>                
+              </div>
+            </div>
+            
+            <div id="item_add_16" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="m-0">trolly</h3>
+<button type="button" class="close" data-dismiss="modal">×</button>
+
+</div>
+<div class="modal-body">
+
+<form action="/booking/162" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="_token" value="bC5NH3SFL9yU78LSiixJfgt7OraQqedibK2g7mcj">
+
+  <input type="hidden" name="item_id" value="16">
+  <input type="hidden" name="item_name" value="trolly">
+  <input type="hidden" name="item_image" value="default.png">
+  <input type="hidden" name="file_path" value="">
+  
+  
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <strong>Quantity :</strong> <input class="form-control" min="1" max="10" type="number" name="quantity" value="1">
+        </div>
+        <div class="form-group col-md-6">
+                      <strong>Item Category Name: 0</strong> 
+            <select name="category" class="form-control">
+                        <option value="15">Small</option>
+                        <option value="14">Category 1</option>
+                        <option value="13">BULKY</option>
+                        </select>
+                  </div>
+    </div>
+    
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-3 text-center"><strong>Height</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Width</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Breadth</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Weight</strong></div> 
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="height" value="2">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="width" value="1">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="breadth" value="1">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="weight" value="10">
+        </div> 
+    </div>
+  
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-12"><strong>Image Upload</strong></div> 
+    </div>
+    <div class="form-row">
+     <div class="custom-file">
+      <input type="file" class="custom-file-input" name="picture" id="picture">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+      </div>
+    </div>
+    <hr>
+    
+    <div class="form-group">
+      <label class="form-label"><strong>What needs to be disassembled/reassembled?</strong><br>
+          Please specify the item and the level of complexity from 1-5, i.e "bed frame, level 2"</label>
+                  <select name="ranking" class="form-control">
+                        <option value="1">A - basic metal frame</option>
+                        <option value="2">B - locking joints, no tools required</option>
+                        <option value="3">C - requires 1 tool (i.e allen key)</option>
+                        <option value="4">D - requires multiple tools and has many pieces</option>
+                        <option value="5">E - full IKEA out-of-box assembly; 4-poster bed trundle</option>
+                    </select>
+            </div>
+    <hr>
+    <div class="form-row jjjj">     
+      
+                  
+                      
+              
+            
+                      
+              
+            
+                      
+            
+              <div class="form-group col-md-6"> 
+              
+                  <p><strong>Q). first question about trolly </strong></p>
+
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="answer[28]-yes" name="answer[28]" class="custom-control-input">
+                    <label class="custom-control-label" for="answer[28]-yes">Yes</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="answer[28]-no" name="answer[28]" class="custom-control-input">
+                    <label class="custom-control-label" for="answer[28]-no">No</label>
+                  </div>
+              
+              </div>
+              
+            
+                      
+            
+              <div class="form-group col-md-6"> 
+              
+                  <p><strong>Q). second question about trolly </strong></p>
+
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="answer[29]-yes" name="answer[29]" class="custom-control-input">
+                    <label class="custom-control-label" for="answer[29]-yes">Yes</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="answer[29]-no" name="answer[29]" class="custom-control-input">
+                    <label class="custom-control-label" for="answer[29]-no">No</label>
+                  </div>
+              
+              </div>
+              
+            
+                    
+                
+      
+    </div>
+    <hr>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Pickup Location of Seleted item</strong></label>
+                  <select name="pick_up_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Drop off Location of Seleted item</strong></label>
+                  <select name="drop_off_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    
+  
+  <div class="modal-footer">
+    <button name="btn_submit" type="submit" class="btn btn-success" value="5">Add Item</button>
+    <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">Close</button>
+  </div>
+</form>
+</div>
+</div>
+
+</div>
+</div>          
+            
+          
+            <div class="col-xl-2 col-sm-3">
+              <div class="card card-body bg-light text-center p-2 mb-3">
+                                  <a href="#" data-toggle="modal" data-target="#item_add_19">
+                    <img src="/uploads/inventory/19_images.jpg" class="card-img" height="60" alt="">
+                    <span class="card-img-actions-overlay card-img">
+                      <i class="icon-plus3"></i>
+                    </span>
+                  </a>
+                  
+
+                <small class="pt-2">Sofa</small>                
+              </div>
+            </div>
+            
+            <div id="item_add_19" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="m-0">sofa</h3>
+<button type="button" class="close" data-dismiss="modal">×</button>
+
+</div>
+<div class="modal-body">
+
+<form action="/booking/162" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="_token" value="bC5NH3SFL9yU78LSiixJfgt7OraQqedibK2g7mcj">
+
+  <input type="hidden" name="item_id" value="19">
+  <input type="hidden" name="item_name" value="sofa">
+  <input type="hidden" name="item_image" value="">
+  <input type="hidden" name="file_path" value="/uploads/inventory/19_images.jpg">
+  
+  
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <strong>Quantity :</strong> <input class="form-control" min="1" max="10" type="number" name="quantity" value="1">
+        </div>
+        <div class="form-group col-md-6">
+                      <strong>Item Category Name: </strong> 
+            <select name="category" class="form-control">
+                        <option value="15">Small</option>
+                        <option value="14">Category 1</option>
+                        <option value="13">BULKY</option>
+                        </select>
+                  </div>
+    </div>
+    
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-3 text-center"><strong>Height</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Width</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Breadth</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Weight</strong></div> 
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="height" value="5">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="width" value="4">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="breadth" value="5">
+        </div>
+        <div class="form-group col-md-3">
+          <input class="form-control" min="0" type="number" name="weight" value="30">
+        </div> 
+    </div>
+  
+    <hr>
+    <div class="form-row">
+        <div class="form-group col-md-12"><strong>Image Upload</strong></div> 
+    </div>
+    <div class="form-row">
+     <div class="custom-file">
+      <input type="file" class="custom-file-input" name="picture" id="picture">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+      </div>
+    </div>
+    <hr>
+    
+    <div class="form-group">
+      <label class="form-label"><strong>What needs to be disassembled/reassembled?</strong><br>
+          Please specify the item and the level of complexity from 1-5, i.e "bed frame, level 2"</label>
+                  <select name="ranking" class="form-control">
+                        <option value="1">A - basic metal frame</option>
+                        <option value="2">B - locking joints, no tools required</option>
+                        <option value="3">C - requires 1 tool (i.e allen key)</option>
+                        <option value="4">D - requires multiple tools and has many pieces</option>
+                        <option value="5">E - full IKEA out-of-box assembly; 4-poster bed trundle</option>
+                    </select>
+            </div>
+    <hr>
+    <div class="form-row jjjj">     
+      
+                  
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                    
+                
+      
+    </div>
+    <hr>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Pickup Location of Seleted item</strong></label>
+                  <select name="pick_up_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Please Select Drop off Location of Seleted item</strong></label>
+                  <select name="drop_off_loc_id" class="form-control">
+                        <option value="273">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    
+  
+  <div class="modal-footer">
+    <button name="btn_submit" type="submit" class="btn btn-success" value="5">Add Item</button>
+    <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">Close</button>
+  </div>
+</form>
+</div>
+</div>
+
+</div>
+</div>          
+                </div>
+      </div>      
+    </div>
+  </div>
+
+</div>
+
+
+ 
+
+  
+  
+
+
+
+<div class="row">
+  <div class="col-md-12 mt-4">
+  
+        
+    <div class="row">
+      <div class="col-md-3 pr-0">
+        <div class="card bg-transparent">
+        
+                
+         
+                
+                   
+                  
+                 
+                
+                   
+                  
+                 
+                
+                   
+                  
+                        
+        
+                                    
+          <div class="card-header">
+            <h6 class="m-0">Truck(s) Info</h6>
+          </div>
+          <div class="card-body pt-2 border-top mx-1">
+            <div class="row">
+              <div class="col-md-12 pt-1 mt-1 pl-2">                
+                <div class="progress h-100">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark py-3" style="width:138%;" role="progressbar" aria-valuenow="138" aria-valuemin="0" aria-valuemax="100">138%</div>
+                </div>
+              </div>
+              <div class="col-md-12 mt-3">
+                <p class="border-bottom pb-2"><strong>Truck Capacity</strong> <span class="float-right"> 8000</span></p>
+                <p class="border-bottom pb-2"><strong>Your Load</strong> <span class="float-right">11000</span></p>
+                <p class="border-bottom pb-2"><strong>About Truck</strong> <a href="#" data-toggle="modal" data-target="#truck-info" class="btn btn-dark btn-sm float-right">View Details</a></p>
+
+                <div id="truck-info" class="modal fade show" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<h3>Truck: Master Pro</h3>
+<button type="button" class="close" data-dismiss="modal">×</button>
+
+</div>
+<div class="modal-body">
+<style>
+  .truck-g{
+    max-height: 150px;
+  }
+</style>
+<div class="row mb-5 px-5 text-center align-items-center">
+  <div class="col"><img src="/truck-small-1.png" class="img-fluid truck-g" alt=""></div>
+  <div class="col"><img src="/truck-small-4.png" class="img-fluid truck-g" alt=""></div>
+  <div class="col"><img src="/truck-small-2.png" class="img-fluid truck-g" alt=""></div>
+  <div class="col"><img src="/truck-small-3.png" class="img-fluid truck-g" alt=""></div>
+</div>
+<div class="row">
+  <div class="col bg-dark px-3">
+    <h5 class="border-bottom pb-3"><strong>Truck Capacity</strong> <span class="float-right"> 8000</span></h5>
+    <h5 class="border-bottom pb-3"><strong>Truck Number</strong> <span class="float-right">TJ-5487-B</span></h5>
+  </div>
+</div>
+
+
+</div>
+</div>
+
+</div>
+</div>              </div>
+            </div>
+          </div>
+          
+          
+        </div>
+        
+                
+        
+      </div>
+      <div class="col-md-9">
+        <div class="card h-100">
+          <div class="card-header form-inline">
+            
+                        <h6 class="card-title m-0 col-md-4">Selected Items </h6>
+            
+            <div class="col-md-4 text-center">
+              <font color="red">Truck Limit Exceeded </font>
+            </div>
+            
+            <div class="col-md-4 text-right">
+              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#newtruck">Get New Truck</button>
+              <div id="newtruck" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body pt-5 text-center">
+        <i class="fas fa-exclamation fa-4x mb-3 text-danger"></i>
+
+        <h3 class="m-0 text-danger mb-3">Your designated truck has exceeded its capacity</h3>
+        <button type="button" class="close d-none" data-dismiss="modal">×</button>
+
+          <div class="row mt-5 px-md-3 text-white">
+            <div class="col m-auto">
+              <a class="lead btn h-100 btn-success btn-block py-3 hvr-grow hvr-icon-bob shadow">
+                <i class="fas fa-check fa-2x pb-2 hvr-icon"></i>
+                <br>Would you like to upgrade?</a>
+            </div>
+            <div class="col m-auto">
+              <a class="lead btn h-100 btn-danger btn-block py-3 hvr-grow hvr-icon-bob">
+                <i class="fas fa-times fa-2x pb-2 hvr-icon"></i>
+                <br>Keep the same truck and remove items</a>
+            </div>
+          </div>
+
+          <hr>
+
+          <h4 class="mt-3">What Would You Like To Add?</h4>
+          
+          <div class="row mt-4">
+          
+            <div class="col-md-3">
+              <div class="card">
+                <div class="card-header">
+                  SUV
+                </div>
+                <div class="card-body px-3">
+                  <h3 class="mb-2">$20</h3>
+                  Additional Charges
+                  Volume: 10,000 
+                  <button type="button" name="" value="" class="btn btn-outline-dark btn-sm btn-block mt-3">Select</button>
+                </div>
+                
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card">
+                <div class="card-header">
+                  Wagon
+                </div>
+                <div class="card-body px-3">
+                  <h3 class="mb-2">$40</h3>
+                  Additional Charges
+                  Volume: 12,000 
+                  <button type="button" name="" value="" class="btn btn-outline-dark btn-sm btn-block mt-3">Select</button>
+                </div>
+                
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card">
+                <div class="card-header">
+                  2 Wagons
+                </div>
+                <div class="card-body px-3">
+                  <h3 class="mb-2">$60</h3>
+                  Additional Charges
+                  Volume: 15,000
+                  <button type="button" name="" value="" class="btn btn-outline-dark btn-sm btn-block mt-3">Select</button>
+                </div>
+                
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card">
+                <div class="card-header">
+                  Wagon and Trailer
+                </div>
+                <div class="card-body px-3">
+                  <h3 class="mb-2">$80</h3>
+                  Additional Charges
+                  Volume: 20,000 
+                        
+                    <button type="button" name="" value="" class="btn btn-outline-dark btn-sm btn-block mt-3">Select</button>
+                  
+                </div>
+                
+              </div>
+            </div>
+            
+          
+          </div>
+          
+          <hr>
+          <button class="btn btn-success btn-lg" data-dismiss="modal">Proceed <i class="fas fa-chevron-right hvr-icon"></i></button>
+
+      </div>
+    </div>
+  </div>
+</div>    
+            </div>
+                        
+            
+          </div>
+          <div class="card card-body">
+          
+            <!-- Grid -->
+    <div class="row">
+            <div class="col-xl-2 col-sm-3">
+    <div class="card">
+      <a href="/uploads/inventory/15_1-catalog_360.jpg" class="p-0 m-0 text-center">
+        <img src="/uploads/inventory/15_1-catalog_360.jpg" class="card-img-top" width="60" height="60" alt="">
+      </a>
+
+      <div class="card-body bg-light text-center p-0">      
+
+        <small class="py-2 d-block">CupBoard</small>
+
+      <div class="btn-group w-100" role="group">
+      
+        <form class="m-0 row" id="ajaxform216" action="/booking/162" method="post" enctype="multipart/form-data">
+        
+          <input type="hidden" name="_token" value="bC5NH3SFL9yU78LSiixJfgt7OraQqedibK2g7mcj">
+          <input type="hidden" name="booking_id" value="162">
+          <input type="hidden" name="btn_submit" value="5">
+          <input type="hidden" name="booking_item_id" value="216">
+          <input type="hidden" name="quantity" value="1">
+          <input type="hidden" id="action216" name="action" value="">
+          
+          
+        
+          <button class="btn btn-info btn-sm col-6 rounded-0" type="button" data-toggle="modal" data-target="#item_info_216"><i class="far fa-eye"></i></button>
+          <button class="btn btn-danger btn-sm col-6 rounded-0" type="button" data-toggle="modal" data-target="#item_delete216"><i class="far fa-trash-alt"></i></button>
+          <br>
+          <input name="action" onclick="submitform('216','-');" type="submit" class="btn btn-dark btn-sm fas fa-plus fa-lg col-6 rounded-0" value="-">
+          <input name="action" onclick="submitform('216','+');" type="submit" value="+" class="btn btn-dark btn-sm fas fa-plus fa-lg col-6 rounded-0 border-right">
+        
+        </form> 
+      </div>    
+      
+      <div class="w-100 text-center py-1">
+        Qty: 1
+      </div>    
+
+      </div>
+
+    </div>
+    </div>
+
+    
+    <div id="item_info_216" class="modal fade show" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<h3>CupBoard</h3>
+<button type="button" class="close" data-dismiss="modal">×</button>
+
+</div>
+<div class="modal-body">
+
+  <input type="hidden" name="item_id" value="15">
+  <input type="hidden" name="item_name" value="CupBoard">
+  <input type="hidden" name="item_image" value="">
+  
+    <div class="form-row">
+        <div class="form-group col-md-3 text-center">
+          
+        </div>
+        <div class="form-group col-md-3 text-center">
+          <strong>Quantity</strong> <input class="form-control text-center" min="0" type="number" name="quantity" value="1" disabled="">
+        </div>
+        <div class="form-group col-md-3 text-center">
+                      <strong>Item Category Name:</strong> 
+            <select name="category" class="form-control" readonly="">
+                        <option value="15">Small</option>
+                        <option value="14">Category 1</option>
+                        <option value="13">BULKY</option>
+                        </select>
+                  </div>
+        <div class="form-group col-md-3 text-center">
+          
+        </div>
+    </div>
+  
+    <div class="form-group">
+      
+        
+        <div class="col-md-12">
+                                  
+      </div>
+    </div>
+        <hr>
+    <div class="form-row">
+        <div class="form-group col-md-3 text-center"><strong>Length</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Height</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Width</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Weight</strong></div> 
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3 ">
+        <input class="form-control text-center" value="10" disabled="">
+      </div> 
+      <div class="form-group col-md-3 text-center">
+        <input class="form-control text-center" value="10" disabled="">
+      </div>
+      <div class="form-group col-md-3 text-center">
+        <input class="form-control text-center" value="10" disabled="">
+      </div>
+      <div class="form-group col-md-3 text-center">
+        <input class="form-control text-center" value="10" disabled="">
+      </div>
+    </div>
+    <hr>
+    
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>What needs to be disassembled/reassembled?</strong><br>
+          Please specify the item and the level of complexity from 1-5, i.e "bed frame, level 2"</label>
+                  <select name="ranking" class="form-control" disabled="">
+                        <option value="1" selected="">A - basic metal frame</option>
+                        <option value="2">B - locking joints, no tools required</option>
+                        <option value="3">C - requires 1 tool (i.e allen key)</option>
+                        <option value="4">D - requires multiple tools and has many pieces</option>
+                        <option value="5">E - full IKEA out-of-box assembly; 4-poster bed trundle</option>
+                    </select>
+                
+      </div>
+    </div>
+    <hr>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      
+                  <table>
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                      
+              
+            
+                    </table>
+                
+      </div>
+    </div>
+    <hr>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Selected Pickup Location of Seleted item</strong></label>
+                  
+          <select name="pick_up_loc_id" class="form-control" disabled="">
+                        <option value="273" selected="">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Selected Drop off Location of Seleted item</strong></label>
+                
+          <select name="drop_off_loc_id" class="form-control" disabled="">
+                        <option value="273" selected="">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    
+
+  <div class="modal-footer">
+    <!-- <button name ="btn_submit" type="submit" class="btn btn-success" value="5">Add Item</button> -->
+    <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">Close</button> 
+  </div>
+</div>
+</div>
+
+</div>
+</div>                          
+    <!-- Modal -->
+  
+  <div id="item_delete216" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+  <div class="modal-header">
+    <h3>sofa</h3>
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    
+  </div>
+  <div class="modal-body">
+  
+
+      <input type="hidden" name="booking_item_id" value="216">
+      
+      <div class="border rounded p-3 text-danger text-center">
+        
+           <h3>Are you sure do you want to delete this item ? <i class="far fa-trash-alt"></i></h3>
+      
+      
+      </div>
+      <div class="modal-footer text-center">
+        <button name="btn_delete" type="submit" class="btn btn-danger" value="5">Yes</button>
+        <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">No</button>
+      </div>
+    
+  </div>
+  </div>
+
+  </div>
+  </div>
+
+                <div class="col-xl-2 col-sm-3">
+    <div class="card">
+      <a href="/uploads/inventory/4_images.jpg" class="p-0 m-0 text-center">
+        <img src="/uploads/inventory/4_images.jpg" class="card-img-top" width="60" height="60" alt="">
+      </a>
+
+      <div class="card-body bg-light text-center p-0">      
+
+        <small class="py-2 d-block">Table</small>
+
+      <div class="btn-group w-100" role="group">
+      
+        <form class="m-0 row" id="ajaxform221" action="/booking/162" method="post" enctype="multipart/form-data">
+        
+          <input type="hidden" name="_token" value="bC5NH3SFL9yU78LSiixJfgt7OraQqedibK2g7mcj">
+          <input type="hidden" name="booking_id" value="162">
+          <input type="hidden" name="btn_submit" value="5">
+          <input type="hidden" name="booking_item_id" value="221">
+          <input type="hidden" name="quantity" value="5">
+          <input type="hidden" id="action221" name="action" value="">
+          
+          
+        
+          <button class="btn btn-info btn-sm col-6 rounded-0" type="button" data-toggle="modal" data-target="#item_info_221"><i class="far fa-eye"></i></button>
+          <button class="btn btn-danger btn-sm col-6 rounded-0" type="button" data-toggle="modal" data-target="#item_delete221"><i class="far fa-trash-alt"></i></button>
+          <br>
+          <input name="action" onclick="submitform('221','-');" type="submit" class="btn btn-dark btn-sm fas fa-plus fa-lg col-6 rounded-0" value="-">
+          <input name="action" onclick="submitform('221','+');" type="submit" value="+" class="btn btn-dark btn-sm fas fa-plus fa-lg col-6 rounded-0 border-right">
+        
+        </form> 
+      </div>    
+      
+      <div class="w-100 text-center py-1">
+        Qty: 5
+      </div>    
+
+      </div>
+
+    </div>
+    </div>
+
+    
+    <div id="item_info_221" class="modal fade show" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<h3>Table</h3>
+<button type="button" class="close" data-dismiss="modal">×</button>
+
+</div>
+<div class="modal-body">
+
+  <input type="hidden" name="item_id" value="4">
+  <input type="hidden" name="item_name" value="Table">
+  <input type="hidden" name="item_image" value="default.png">
+  
+    <div class="form-row">
+        <div class="form-group col-md-3 text-center">
+          
+        </div>
+        <div class="form-group col-md-3 text-center">
+          <strong>Quantity</strong> <input class="form-control text-center" min="0" type="number" name="quantity" value="5" disabled="">
+        </div>
+        <div class="form-group col-md-3 text-center">
+                      <strong>Item Category Name:</strong> 
+            <select name="category" class="form-control" readonly="">
+                        <option value="15">Small</option>
+                        <option value="14">Category 1</option>
+                        <option value="13">BULKY</option>
+                        </select>
+                  </div>
+        <div class="form-group col-md-3 text-center">
+          
+        </div>
+    </div>
+  
+    <div class="form-group">
+      
+        
+        <div class="col-md-12">
+                                  
+      </div>
+    </div>
+        <hr>
+    <div class="form-row">
+        <div class="form-group col-md-3 text-center"><strong>Length</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Height</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Width</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Weight</strong></div> 
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3 ">
+        <input class="form-control text-center" value="10" disabled="">
+      </div> 
+      <div class="form-group col-md-3 text-center">
+        <input class="form-control text-center" value="10" disabled="">
+      </div>
+      <div class="form-group col-md-3 text-center">
+        <input class="form-control text-center" value="10" disabled="">
+      </div>
+      <div class="form-group col-md-3 text-center">
+        <input class="form-control text-center" value="10" disabled="">
+      </div>
+    </div>
+    <hr>
+    
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>What needs to be disassembled/reassembled?</strong><br>
+          Please specify the item and the level of complexity from 1-5, i.e "bed frame, level 2"</label>
+                  <select name="ranking" class="form-control" disabled="">
+                        <option value="1" selected="">A - basic metal frame</option>
+                        <option value="2">B - locking joints, no tools required</option>
+                        <option value="3">C - requires 1 tool (i.e allen key)</option>
+                        <option value="4">D - requires multiple tools and has many pieces</option>
+                        <option value="5">E - full IKEA out-of-box assembly; 4-poster bed trundle</option>
+                    </select>
+                
+      </div>
+    </div>
+    <hr>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      
+                  <table>
+                      
+              
+              <tbody><tr>
+                <td>
+                  <label class="form-label">Q).What kinds of Table is it? ?</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                                    
+                                    
+                  
+                </td>
+              </tr>
+              
+            
+                      
+              
+              <tr>
+                <td>
+                  <label class="form-label">Q).How long ? ?</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                                    
+                                    
+                  
+                </td>
+              </tr>
+              
+            
+                      
+              
+            
+                      
+              
+            
+                    </tbody></table>
+                
+      </div>
+    </div>
+    <hr>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Selected Pickup Location of Seleted item</strong></label>
+                  
+          <select name="pick_up_loc_id" class="form-control" disabled="">
+                        <option value="273" selected="">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Selected Drop off Location of Seleted item</strong></label>
+                
+          <select name="drop_off_loc_id" class="form-control" disabled="">
+                        <option value="273" selected="">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    
+
+  <div class="modal-footer">
+    <!-- <button name ="btn_submit" type="submit" class="btn btn-success" value="5">Add Item</button> -->
+    <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">Close</button> 
+  </div>
+</div>
+</div>
+
+</div>
+</div>                          
+    <!-- Modal -->
+  
+  <div id="item_delete221" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+  <div class="modal-header">
+    <h3>sofa</h3>
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    
+  </div>
+  <div class="modal-body">
+  
+
+      <input type="hidden" name="booking_item_id" value="221">
+      
+      <div class="border rounded p-3 text-danger text-center">
+        
+           <h3>Are you sure do you want to delete this item ? <i class="far fa-trash-alt"></i></h3>
+      
+      
+      </div>
+      <div class="modal-footer text-center">
+        <button name="btn_delete" type="submit" class="btn btn-danger" value="5">Yes</button>
+        <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">No</button>
+      </div>
+    
+  </div>
+  </div>
+
+  </div>
+  </div>
+
+                <div class="col-xl-2 col-sm-3">
+    <div class="card">
+      <a href="/uploads/inventory/4_images.jpg" class="p-0 m-0 text-center">
+        <img src="/uploads/inventory/4_images.jpg" class="card-img-top" width="60" height="60" alt="">
+      </a>
+
+      <div class="card-body bg-light text-center p-0">      
+
+        <small class="py-2 d-block">Table</small>
+
+      <div class="btn-group w-100" role="group">
+      
+        <form class="m-0 row" id="ajaxform227" action="/booking/162" method="post" enctype="multipart/form-data">
+        
+          <input type="hidden" name="_token" value="bC5NH3SFL9yU78LSiixJfgt7OraQqedibK2g7mcj">
+          <input type="hidden" name="booking_id" value="162">
+          <input type="hidden" name="btn_submit" value="5">
+          <input type="hidden" name="booking_item_id" value="227">
+          <input type="hidden" name="quantity" value="5">
+          <input type="hidden" id="action227" name="action" value="">
+          
+          
+        
+          <button class="btn btn-info btn-sm col-6 rounded-0" type="button" data-toggle="modal" data-target="#item_info_227"><i class="far fa-eye"></i></button>
+          <button class="btn btn-danger btn-sm col-6 rounded-0" type="button" data-toggle="modal" data-target="#item_delete227"><i class="far fa-trash-alt"></i></button>
+          <br>
+          <input name="action" onclick="submitform('227','-');" type="submit" class="btn btn-dark btn-sm fas fa-plus fa-lg col-6 rounded-0" value="-">
+          <input name="action" onclick="submitform('227','+');" type="submit" value="+" class="btn btn-dark btn-sm fas fa-plus fa-lg col-6 rounded-0 border-right">
+        
+        </form> 
+      </div>    
+      
+      <div class="w-100 text-center py-1">
+        Qty: 5
+      </div>    
+
+      </div>
+
+    </div>
+    </div>
+
+    
+    <div id="item_info_227" class="modal fade show" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<h3>Table</h3>
+<button type="button" class="close" data-dismiss="modal">×</button>
+
+</div>
+<div class="modal-body">
+
+  <input type="hidden" name="item_id" value="4">
+  <input type="hidden" name="item_name" value="Table">
+  <input type="hidden" name="item_image" value="default.png">
+  
+    <div class="form-row">
+        <div class="form-group col-md-3 text-center">
+          
+        </div>
+        <div class="form-group col-md-3 text-center">
+          <strong>Quantity</strong> <input class="form-control text-center" min="0" type="number" name="quantity" value="5" disabled="">
+        </div>
+        <div class="form-group col-md-3 text-center">
+                      <strong>Item Category Name:</strong> 
+            <select name="category" class="form-control" readonly="">
+                        <option value="15">Small</option>
+                        <option value="14">Category 1</option>
+                        <option value="13">BULKY</option>
+                        </select>
+                  </div>
+        <div class="form-group col-md-3 text-center">
+          
+        </div>
+    </div>
+  
+    <div class="form-group">
+      
+        
+        <div class="col-md-12">
+                                  
+      </div>
+    </div>
+        <hr>
+    <div class="form-row">
+        <div class="form-group col-md-3 text-center"><strong>Length</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Height</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Width</strong></div> 
+        <div class="form-group col-md-3 text-center"><strong>Weight</strong></div> 
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3 ">
+        <input class="form-control text-center" value="10" disabled="">
+      </div> 
+      <div class="form-group col-md-3 text-center">
+        <input class="form-control text-center" value="10" disabled="">
+      </div>
+      <div class="form-group col-md-3 text-center">
+        <input class="form-control text-center" value="10" disabled="">
+      </div>
+      <div class="form-group col-md-3 text-center">
+        <input class="form-control text-center" value="10" disabled="">
+      </div>
+    </div>
+    <hr>
+    
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>What needs to be disassembled/reassembled?</strong><br>
+          Please specify the item and the level of complexity from 1-5, i.e "bed frame, level 2"</label>
+                  <select name="ranking" class="form-control" disabled="">
+                        <option value="1" selected="">A - basic metal frame</option>
+                        <option value="2">B - locking joints, no tools required</option>
+                        <option value="3">C - requires 1 tool (i.e allen key)</option>
+                        <option value="4">D - requires multiple tools and has many pieces</option>
+                        <option value="5">E - full IKEA out-of-box assembly; 4-poster bed trundle</option>
+                    </select>
+                
+      </div>
+    </div>
+    <hr>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      
+                  <table>
+                      
+              
+              <tbody><tr>
+                <td>
+                  <label class="form-label">Q).What kinds of Table is it? ?</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                                    
+                                    
+                  
+                </td>
+              </tr>
+              
+            
+                      
+              
+              <tr>
+                <td>
+                  <label class="form-label">Q).How long ? ?</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                                    
+                                    
+                  
+                </td>
+              </tr>
+              
+            
+                      
+              
+            
+                      
+              
+            
+                    </tbody></table>
+                
+      </div>
+    </div>
+    <hr>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Selected Pickup Location of Seleted item</strong></label>
+                  
+          <select name="pick_up_loc_id" class="form-control" disabled="">
+                        <option value="273" selected="">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12 text-left">
+      <label class="form-label"><strong>Selected Drop off Location of Seleted item</strong></label>
+                
+          <select name="drop_off_loc_id" class="form-control" disabled="">
+                        <option value="273" selected="">Jinnah International Airport, Airport Road, Karachi, Pakistan</option>
+                        <option value="274">Pakistan Air Force Museum, Shahrah-e-Faisal Road, Karachi, Pakistan</option>
+                    </select>
+              </div>
+    </div>
+    
+
+  <div class="modal-footer">
+    <!-- <button name ="btn_submit" type="submit" class="btn btn-success" value="5">Add Item</button> -->
+    <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">Close</button> 
+  </div>
+</div>
+</div>
+
+</div>
+</div>                          
+    <!-- Modal -->
+  
+  <div id="item_delete227" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+  <div class="modal-header">
+    <h3>sofa</h3>
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    
+  </div>
+  <div class="modal-body">
+  
+
+      <input type="hidden" name="booking_item_id" value="227">
+      
+      <div class="border rounded p-3 text-danger text-center">
+        
+           <h3>Are you sure do you want to delete this item ? <i class="far fa-trash-alt"></i></h3>
+      
+      
+      </div>
+      <div class="modal-footer text-center">
+        <button name="btn_delete" type="submit" class="btn btn-danger" value="5">Yes</button>
+        <button type="button" class="btn btn-default border border-secondary" data-dismiss="modal">No</button>
+      </div>
+    
+  </div>
+  </div>
+
+  </div>
+  </div>
+
+              </div>
+            
+          </div>
+        </div>
+      </div>      
+    </div>
+    
+        
+        
+  </div>
+
+
+  <div class="col mt-4">
+          
+            <input type="hidden" name="accuracy" id="accuracy" value="Not Accurate">
+
+            <div class="card">
+              <div class="card-header bg-warning hvr-shadow">
+                <a class="btn btn-link text-dark w-100 text-left" data-toggle="collapse" href="#i-accuracy" rle="button" aria-expanded="false" aria-controls="collapseExample">
+   <h4 class="m-0">Please select inventory accuracy: <i class="far fa-plus-square float-right "></i></h4>
+  </a>
+              </div>
+            
+
+            
+  
+  <div class="collapse" id="i-accuracy">
+      <div class="card-body">
+            <!-- Row 1 -->
+            <div class="row mb-4">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="card card-body">
+                      
+                   
+                    <p>
+                      Please be as helpful as possible in this category.
+                          We understand that estimating is hard so image
+                          estimating your job from your estimate. <strong>NOT EASY!</strong></p>
+                  </div>
+                </div>
+            </div>
+    
+     
+            <div class="row">
+                <div class="col-md-3">
+
+                  <div class="card card-body hvr-shadow w-100">
+                    <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="accuracy-1" name="accuracy" class="custom-control-input" value="Not Accurate">
+              <label class="custom-control-label font-weight-bold" for="accuracy-1">Not Accurate</label>
+            </div>
+            <p class="border-top pt-2 my-2">Have Not packed or not sure</p>
+                  </div>
+
+                </div>
+
+
+                <div class="col-md-3">
+
+                  <div class="card card-body hvr-shadow w-100">
+                    <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="accuracy-2" name="accuracy" class="custom-control-input" value="Somewhat Accurate">
+              <label class="custom-control-label font-weight-bold" for="accuracy-2">Somewhat Accurate</label>
+            </div>
+            <p class="border-top pt-2 my-2">Most of the big stuff</p>
+                  </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                  <div class="card card-body hvr-shadow w-100">
+                    <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="accuracy-3" name="accuracy" class="custom-control-input" value="Accurate">
+              <label class="custom-control-label font-weight-bold" for="accuracy-3">Accurate</label>
+            </div>
+            <p class="border-top pt-2 my-2">Plus or minus a few items</p>
+                  </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                  <div class="card card-body hvr-shadow w-100">
+                    <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="accuracy-4" name="accuracy" class="custom-control-input" value="Very Accurate">
+              <label class="custom-control-label font-weight-bold" for="accuracy-4">Very Accurate</label>
+            </div>
+            <p class="border-top pt-2 my-2">Inventory 100% accurate</p>
+                  </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+      
+   </div>
+  </div>
+
+  <div class="col-md-12 text-center">
+        <hr>
+    <a href="/booking/162/4" name="btn_save_step_back" type="submit" value="5" class="btn btn-outline-dark m-auto  hvr-icon-wobble-horizontal"><i class="fas fa-chevron-left hvr-icon"></i> Back</a>
+    <a href="storage-timings.html" name="btn_save_step_next" class="btn btn-dark m-auto hvr-icon-wobble-horizontal">Save &amp; Continue  <i class="fas fa-chevron-right hvr-icon"></i></a>
+        
+  </div>
+
+  </div>
+
+
+  
+
+
+
+  
+</div>
+</section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIUaBvvlXdLIxkhAVVqQJC7jhSg98g7NE&libraries=places"></script>
+
+<!--
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/asset/js/custom.js"></script>
+<script type="text/javascript" src="http://relo.thesiriussolutions.com/main/vendor/moment/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/materialize/js/materialize.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/air-datepicker/dist/js/datepicker.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/air-datepicker/dist/js/i18n/datepicker.en.js"></script>
+
+
+
+</body>
+</html>

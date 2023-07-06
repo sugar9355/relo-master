@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Location Details</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/1cb4e2d48a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" />
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/style.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/hover-min.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/animate.css">    
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/main/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/air-datepicker/dist/css/datepicker.min.css">
+
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jstat/1.7.0/jstat.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+  
+  <script>
+    
+
+var data;
+var options;
+let chart;
+var stndDev = 1;
+var mean = 0;
+let xMin = -4.1;
+let xMax = 4.1;
+let xLeft = -2;
+let xRight = 2;
+
+google.charts.load("current", { packages: ["corechart"] });
+google.charts.setOnLoadCallback(prepareChart);
+
+function prepareChart() {
+  data = new google.visualization.DataTable();
+  setChartOptions();
+  addColumns();
+  addData();
+  drawChart();
+}
+function setChartOptions() {
+  options = { legend: "none" };
+  options.hAxis = {};
+  options.hAxis.minorGridlines = {};
+  options.hAxis.minorGridlines.count = 5;
+  return options;
+}
+function addColumns() {
+  data.addColumn("number", "X Value");
+  data.addColumn("number", "Y Value");
+  data.addColumn({ type: "boolean", role: "scope" });
+  data.addColumn({ type: "string", role: "style" });
+}
+function addData() {
+  data.addRows(createArray(xMin, xMax, xLeft, xRight, mean, stndDev));
+}
+function createArray(xMin, xMax, xLeft, xRight, mean, stndDev) {
+  let chartData = new Array([]);
+  let index = 0;
+  for (var i = xMin; i <= xMax; i += 0.1) {
+    chartData[index] = new Array(4);
+    chartData[index][0] = i;
+    chartData[index][1] = jStat.normal.pdf(i, mean, stndDev);
+
+    if (i < xLeft || i > xRight) {
+      chartData[index][2] = false;
+    }
+    chartData[index][3] =
+      "opacity: 1; + color: #ffc107; + stroke-color: black; ";
+
+    index++;
+  }
+  return chartData;
+}
+function drawChart() {
+  chart = new google.visualization.AreaChart(
+    document.getElementById("chart_div")
+  );
+  chart.draw(data, options);
+}
+
+// function clearCurrentData(){
+//    console.log("count before remove "+ data.getNumberOfRows());
+//   data.removeRows(0,data.getNumberOfRows());
+//    console.log("count after remove "+ data.getNumberOfRows());
+// }
+
+// function reDraw(){
+//   console.log("in redraw")
+//  clearCurrentData();
+//   data.addRows(createArray(-6, 6, -5, 5, 2, stndDev));
+//    drawChart(setChartOptions());
+// }
+
+// reDraw();
+
+  </script>
+
+
+</head>
+<body>
+  <!--START HEADER-->
+
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand clip-right-chevron" href="/">
+        <img src="http://relo.thesiriussolutions.com/asset/img/Capture.png" alt="Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="http://relo.thesiriussolutions.com/payment">Payment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Past</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Creadits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>          
+        </ul>
+
+        <div class="dropdown ml-lg-3">
+          <a class="btn btn-warning dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Hi, arsal
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" class="/trips" href="/dashboard">Overview</a>
+            <form id="logout-form" action="http://relo.thesiriussolutions.com/logout" method="POST"
+            style="display: none;"><input type="hidden" name="_token" value="7PoJD9uexqzgTns0Z0Ml9aglC7x2KwAykuj4ihQI"></form>        
+            <a class="dropdown-item" href="http://relo.thesiriussolutions.com/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+<section class="content">
+    
+<style>
+
+    .profile-box{
+      background: rgba(255,193,7,1);
+      background: -moz-linear-gradient(top, rgba(255,193,7,1) 0%, rgba(255,146,10,1) 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,193,7,1)), color-stop(100%, rgba(255,146,10,1)));
+      background: -webkit-linear-gradient(top, rgba(255,193,7,1) 0%, rgba(255,146,10,1) 100%);
+      background: -o-linear-gradient(top, rgba(255,193,7,1) 0%, rgba(255,146,10,1) 100%);
+      background: -ms-linear-gradient(top, rgba(255,193,7,1) 0%, rgba(255,146,10,1) 100%);
+      background: linear-gradient(to bottom, rgba(255,193,7,1) 0%, rgba(255,146,10,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc107', endColorstr='#ff920a', GradientType=0 );
+    }
+    .job-item{
+      width: 100%;
+    }
+    .job-item a{
+      color: #333;
+      width:100%;
+      text-decoration: none;
+    }
+    .job-item p{
+      padding:3px 0 7px 0;
+      margin: 0px;
+    }
+    .job-item p.lead{
+      border-bottom: 0px;
+    }
+    .profile-box a:before{
+      background-color: #333;
+    }
+
+  </style>
+
+    <div class="container my-5"> 
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card bg-warning profile-box">
+            <div class="card-body">
+              <div class="p-3 pt-0 text-center"><img src="https://randomuser.me/api/portraits/men/17.jpg" alt="" class="rounded-circle"></div>
+              <h5 class="card-title text-center">arsal akhter</h5>
+              <p class="text-center">NL</p>
+            </div>
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action hvr-sweep-to-right"><i class="far fa-clock mr-2"></i> Scheduled Jobs</a>
+              <a href="#" class="list-group-item list-group-item-action hvr-sweep-to-right"><i class="fas fa-history mr-2"></i> Job History</a>
+              <a href="edit-profile.html" class="list-group-item list-group-item-action hvr-sweep-to-right"><i class="far fa-user-circle mr-2"></i> Profile</a>
+              <a href="#" class="list-group-item list-group-item-action hvr-sweep-to-right"><i class="far fa-comment-dots mr-2"></i> Messages</a>
+              <a href="payments.html" class="list-group-item list-group-item-action hvr-sweep-to-right"><i class="far fa-comment-dots mr-2"></i> Payments</a>
+              <a href="Notifications.html" class="list-group-item list-group-item-action hvr-sweep-to-right"><i class="far fa-bell mr-2"></i> Notifications</a>
+            </div>
+          </div>
+          
+        </div>
+          <style type="text/css">
+            .notification {
+            color: #333333;
+            padding: 15px 30px;
+            display: flex;
+            width: 100%;
+            background-color: #ffffff;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0,0,0,.125);
+            border-radius: 1rem;
+            text-decoration: none;
+            -ms-flex-align: center!important;
+            align-items: center!important;
+            transform: all 1s;
+            margin-bottom: 20px;
+            }
+            .notification:hover{
+              text-decoration: none;
+              color: var(--warning);
+            }
+    </style>
+<div class="col-md-9">
+
+          <h1>Payment Details</h1>
+          <hr>
+
+          <div class="col-md-8 m-auto">
+            <div class="card card-body">
+
+              <div class="form-row">
+            <div class="form-group col-md-12">
+
+              <label for="">Card Type</label>
+              <select name="" id="" class="form-control">
+                <option value="">Credit Card</option>
+                <option value="">Visa Card</option>
+                <option value="">Master Card</option>
+              </select>
+              
+
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="">Name on Card</label>
+              <input type="text" class="form-control">              
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="">Card Number</label>
+              <input type="text" class="form-control">              
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="">Valid Through</label>
+              <input type="text" class="form-control">              
+            </div>
+            <div class="form-group col-md-6">
+              <label for="">CVV</label>
+              <input type="text" class="form-control">              
+            </div>
+          </div>
+
+              
+              <div class="btn btn-warning btn-block mt-3"><strong>Proceed</strong></div>
+
+
+            </div>
+
+
+          </div>
+
+          
+          
+                
+                        
+        </div>
+    
+<script type="text/javascript">
+
+  var s_lat =  24.8863155;
+  var s_lng = 67.12597840000001;
+
+  var d_lat = 24.8761305;
+  var d_lng = 67.1010555;
+
+</script>
+
+<script src="http://relo.localhost.com/asset/js/location.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIUaBvvlXdLIxkhAVVqQJC7jhSg98g7NE&amp;libraries=places&amp;callback=initMap" async="" defer=""></script>         </div>
+
+    </div>
+
+</section>
+
+
+  <script>
+/*var $ = function (selector) {
+return document.querySelector(selector);
+};
+var $$ = function (selector) {
+return document.querySelectorAll(selector);
+};
+var breadcrumb = $('.breadcrumb');
+var breadcrumbSteps = $$('.breadcrumb__step');
+[].forEach.call(breadcrumbSteps, function (item, index, array) {
+item.onclick = function () {
+for (var i = 0, l = array.length; i < l; i++) {if (window.CP.shouldStopExecution(0)) break;
+if (index >= i) {
+array[i].classList.add('breadcrumb__step--active');
+} else
+{
+array[i].classList.remove('breadcrumb__step--active');
+}
+}window.CP.exitedLoop(0);
+};
+});*/
+
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript"
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIUaBvvlXdLIxkhAVVqQJC7jhSg98g7NE&libraries=places"></script>
+
+<!--
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/asset/js/custom.js"></script>
+<script type="text/javascript" src="http://relo.thesiriussolutions.com/main/vendor/moment/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/materialize/js/materialize.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/air-datepicker/dist/js/datepicker.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/air-datepicker/dist/js/i18n/datepicker.en.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js"></script>
+
+
+<script>
+            $('#customFile').on('change',function(){
+                //get the file name
+                var fileName = $(this).val();
+                //replace the "Choose a file" label
+                $(this).next('.custom-file-label').html(fileName);
+            })
+        </script>
+
+
+
+</body>
+</html>

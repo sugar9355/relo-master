@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Location Details</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/1cb4e2d48a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" />
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/style.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/hover-min.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/animate.css">    
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/main/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/air-datepicker/dist/css/datepicker.min.css">
+
+<!-- Core JS files -->
+  <script src="http://relo.localhost.com/assets_admin/js/main/jquery.min.js"></script>
+  
+  <!-- /core JS files -->
+
+  <!-- Theme JS files -->
+  <script src="http://relo.localhost.com/assets_admin/js/plugins/extensions/jquery_ui/widgets.min.js"></script>
+  <!-- <script src="http://relo.localhost.com/assets_admin/js/plugins/extensions/jquery_ui/touch.min.js"></script>
+  <script src="http://relo.localhost.com/assets_admin/js/plugins/sliders/slider_pips.min.js"></script> 
+  <script src="http://relo.localhost.com/assets_admin/js/plugins/forms/styling/switchery.min.js"></script>-->
+  
+  
+<style>
+#time-range p {
+    font-family:"Arial", sans-serif;
+    font-size:14px;
+    color:#333;
+}
+.ui-slider-horizontal {
+    height: 8px;
+    background: #D7D7D7;
+    border: 1px solid #BABABA;
+    box-shadow: 0 1px 0 #FFF, 0 1px 0 #CFCFCF inset;
+    clear: both;
+    margin: 8px 0;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+}
+.ui-slider {
+    position: relative;
+    text-align: left;
+}
+.ui-slider-horizontal .ui-slider-range {
+    top: -1px;
+    height: 100%;
+}
+.ui-slider .ui-slider-range {
+    position: absolute;
+    z-index: 1;
+    height: 8px;
+    font-size: .7em;
+    display: block;
+    border: 1px solid #5BA8E1;
+    box-shadow: 0 1px 0 #AAD6F6 inset;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+    background: #81B8F3;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgi…pZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #A0D4F5), color-stop(100%, #81B8F3));
+    background-image: -webkit-linear-gradient(top, #A0D4F5, #81B8F3);
+    background-image: -moz-linear-gradient(top, #A0D4F5, #81B8F3);
+    background-image: -o-linear-gradient(top, #A0D4F5, #81B8F3);
+    background-image: linear-gradient(top, #A0D4F5, #81B8F3);
+}
+.ui-slider .ui-slider-handle {
+    border-radius: 50%;
+    background: #F9FBFA;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgi…pZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #C7CED6), color-stop(100%, #F9FBFA));
+    background-image: -webkit-linear-gradient(top, #C7CED6, #F9FBFA);
+    background-image: -moz-linear-gradient(top, #C7CED6, #F9FBFA);
+    background-image: -o-linear-gradient(top, #C7CED6, #F9FBFA);
+    background-image: linear-gradient(top, #C7CED6, #F9FBFA);
+    width: 22px;
+    height: 22px;
+    -webkit-box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.6), 0 -1px 0 1px rgba(0, 0, 0, 0.15) inset, 0 1px 0 1px rgba(255, 255, 255, 0.9) inset;
+    -moz-box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.6), 0 -1px 0 1px rgba(0, 0, 0, 0.15) inset, 0 1px 0 1px rgba(255, 255, 255, 0.9) inset;
+    box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.6), 0 -1px 0 1px rgba(0, 0, 0, 0.15) inset, 0 1px 0 1px rgba(255, 255, 255, 0.9) inset;
+    -webkit-transition: box-shadow .3s;
+    -moz-transition: box-shadow .3s;
+    -o-transition: box-shadow .3s;
+    transition: box-shadow .3s;
+}
+.ui-slider .ui-slider-handle {
+    position: absolute;
+    z-index: 2;
+    width: 22px;
+    height: 22px;
+    cursor: default;
+    border: none;
+    cursor: pointer;
+}
+.ui-slider .ui-slider-handle:after {
+    content:"";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    top: 50%;
+    margin-top: -4px;
+    left: 50%;
+    margin-left: -4px;
+    background: #30A2D2;
+    -webkit-box-shadow: 0 1px 1px 1px rgba(22, 73, 163, 0.7) inset, 0 1px 0 0 #FFF;
+    -moz-box-shadow: 0 1px 1px 1px rgba(22, 73, 163, 0.7) inset, 0 1px 0 0 white;
+    box-shadow: 0 1px 1px 1px rgba(22, 73, 163, 0.7) inset, 0 1px 0 0 #FFF;
+}
+.ui-slider-horizontal .ui-slider-handle {
+    top: -.5em;
+    margin-left: -.6em;
+}
+.ui-slider a:focus {
+    outline:none;
+}
+
+.peak
+{
+  color: white;
+  
+  background-color: red;
+  
+  
+  padding: 1px;
+  border-radius: 100px;
+  font-size:12px;
+}
+
+
+</style>
+
+
+</head>
+<body>
+  <!--START HEADER-->
+
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand clip-right-chevron" href="/">
+        <img src="http://relo.thesiriussolutions.com/asset/img/Capture.png" alt="Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="http://relo.thesiriussolutions.com/payment">Payment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Past</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Creadits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>          
+        </ul>
+
+        <div class="dropdown ml-lg-3">
+          <a class="btn btn-warning dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Hi, arsal
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" class="/trips" href="/dashboard">Overview</a>
+            <form id="logout-form" action="http://relo.thesiriussolutions.com/logout" method="POST"
+            style="display: none;"><input type="hidden" name="_token" value="7PoJD9uexqzgTns0Z0Ml9aglC7x2KwAykuj4ihQI"></form>        
+            <a class="dropdown-item" href="http://relo.thesiriussolutions.com/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="container-fluid">
+    <div class="row text-center header-breadcumb">
+      <div class="breadcrumb w-100 d-md-flex">        
+
+         <a class="breadcrumb__step  bg-warning  col" href="/booking/175/1" style="text-decoration: none;">Services</a>
+        <a class="breadcrumb__step  col" href="/booking/175/6" style="text-decoration: none;">Location</a>
+        <a class="breadcrumb__step  col" href="/booking/175/6" style="text-decoration: none;">Inventory</a>
+        <a class="breadcrumb__step  breadcrumb__step--active  col" href="/booking/175/2" style="text-decoration: none;">Dates</a>
+        <a class="breadcrumb__step  col" href="/booking/175/7" style="text-decoration: none;">Summary</a>
+
+
+      </div>
+    </div>
+  </div>
+
+    <section class="content">
+
+      <div class="container my-5"> 
+        <h4 class="text-center animated fadeIn delay-0-2s">SELECT DATE & TIME</h4>
+        <hr>
+        <form action="/booking/162" method="post" enctype="multipart/form-data">
+    
+        <input type="hidden" name="_token" value="dYgCELJ1kzQ4HBEXe5bt9SRij9SMT9umbiMMWrYX">
+
+      
+            <div id="dateRange">
+      <input id="selector" value="0" type="hidden">
+      <div class="row mt-3">
+                <div class="col-md-6">
+          
+          
+                              
+                       
+                    
+                       
+          
+           
+                     
+                     
+                    
+          
+                    <div id="month_3" class="card" style=" ">
+          
+          <div class="card-body">
+          
+            <div class="row col-md-12 pb-1">
+              
+                <div class="col-md-10">
+                  <h6 id="h03">March</h6>
+                </div>
+                
+                <div class="col-md-1">
+                  
+                </div>  
+                <div class="col-md-1">
+                                  <button type="button" onclick="show_month('>','3');" class="btn bg-dark btn-sm text-white">&gt;</button>
+                                </div>
+              
+            </div>
+            
+            <table id="03" class="table table-bordered text-center">  
+              <tbody><tr class="bg-info text-white">
+                <th class="text-center">MON</th>
+                <th class="text-center">TUE</th>
+                <th class="text-center">WED</th>
+                <th class="text-center">THU</th>
+                <th class="text-center">FRI</th>
+                <th class="text-center">SAT</th>
+                <th class="text-center">SUN</th>
+              </tr>
+              
+                 
+
+                <tr>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_2020-03-01" onclick="select_date('2020-03-01');" class=" ">1 </td>
+                                </tr>
+
+                 
+
+                <tr>
+                 
+                                    <td id="td_2020-03-02" onclick="select_date('2020-03-02');" class=" ">2 </td>
+                 
+                                    <td id="td_2020-03-03" onclick="select_date('2020-03-03');" class=" ">3 </td>
+                 
+                                    <td id="td_2020-03-04" onclick="select_date('2020-03-04');" class=" ">4 </td>
+                 
+                                    <td id="td_2020-03-05" onclick="select_date('2020-03-05');" class=" ">5 </td>
+                 
+                                    <td id="td_2020-03-06" onclick="select_date('2020-03-06');" class=" ">6 </td>
+                 
+                                    <td id="td_2020-03-07" onclick="select_date('2020-03-07');" class=" ">7 </td>
+                 
+                                    <td id="td_2020-03-08" onclick="select_date('2020-03-08');" class=" ">8 </td>
+                                </tr>
+
+                 
+
+                <tr>
+                 
+                                    <td id="td_2020-03-09" onclick="select_date('2020-03-09');" class=" ">9 </td>
+                 
+                                    <td id="td_2020-03-10" onclick="select_date('2020-03-10');" class=" ">10 </td>
+                 
+                                    <td id="td_2020-03-11" onclick="select_date('2020-03-11');" class=" ">11 </td>
+                 
+                                    <td id="td_2020-03-12" onclick="select_date('2020-03-12');" class="bg-dark text-white">12 </td>
+                 
+                                    <td id="td_2020-03-13" onclick="select_date('2020-03-13');" class=" ">13 </td>
+                 
+                                    <td id="td_2020-03-14" onclick="select_date('2020-03-14');" class=" ">14 </td>
+                 
+                                    <td id="td_2020-03-15" onclick="select_date('2020-03-15');" class=" ">15 </td>
+                                </tr>
+
+                 
+
+                <tr>
+                 
+                                    <td id="td_2020-03-16" onclick="select_date('2020-03-16');" class=" ">16 </td>
+                 
+                                    <td id="td_2020-03-17" onclick="select_date('2020-03-17');" class=" ">17 </td>
+                 
+                                    <td id="td_2020-03-18" onclick="select_date('2020-03-18');" class=" ">18 </td>
+                 
+                                    <td id="td_2020-03-19" onclick="select_date('2020-03-19');" class=" ">19 </td>
+                 
+                                    <td id="td_2020-03-20" onclick="select_date('2020-03-20');" class=" ">20 </td>
+                 
+                                    <td id="td_2020-03-21" onclick="select_date('2020-03-21');" class=" ">21 </td>
+                 
+                                    <td id="td_2020-03-22" onclick="select_date('2020-03-22');" class=" ">22 </td>
+                                </tr>
+
+                 
+
+                <tr>
+                 
+                                    <td id="td_2020-03-23" onclick="select_date('2020-03-23');" class=" ">23 </td>
+                 
+                                    <td id="td_2020-03-24" onclick="select_date('2020-03-24');" class=" ">24 </td>
+                 
+                                    <td id="td_2020-03-25" onclick="select_date('2020-03-25');" class=" ">25 </td>
+                 
+                                    <td id="td_2020-03-26" onclick="select_date('2020-03-26');" class=" ">26 </td>
+                 
+                                    <td id="td_2020-03-27" onclick="select_date('2020-03-27');" class=" ">27 </td>
+                 
+                                    <td id="td_2020-03-28" onclick="select_date('2020-03-28');" class=" ">28 </td>
+                 
+                                    <td id="td_2020-03-29" onclick="select_date('2020-03-29');" class=" ">29 </td>
+                                </tr>
+
+                 
+
+                <tr>
+                 
+                                    <td id="td_2020-03-30" onclick="select_date('2020-03-30');" class=" ">30 </td>
+                 
+                                    <td id="td_2020-03-31" onclick="select_date('2020-03-31');" class=" ">31 </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                                </tr>
+
+                              
+            </tbody></table>
+            </div>
+          </div>
+                     
+                    
+          
+                    <div id="month_4" class="card" style=" display:none; ">
+          
+          <div class="card-body">
+          
+            <div class="row col-md-12 pb-1">
+              
+                <div class="col-md-10">
+                  <h6 id="h04">April</h6>
+                </div>
+                
+                <div class="col-md-1">
+                                  <button type="button" onclick="show_month('<','4');" class="btn bg-dark btn-sm text-white">&lt;</button>
+                  
+                </div>  
+                <div class="col-md-1">
+                                  <button type="button" onclick="show_month('>','4');" class="btn bg-dark btn-sm text-white">&gt;</button>
+                                </div>
+              
+            </div>
+            
+            <table id="04" class="table table-bordered text-center">  
+              <tbody><tr class="bg-info text-white">
+                <th class="text-center">MON</th>
+                <th class="text-center">TUE</th>
+                <th class="text-center">WED</th>
+                <th class="text-center">THU</th>
+                <th class="text-center">FRI</th>
+                <th class="text-center">SAT</th>
+                <th class="text-center">SUN</th>
+              </tr>
+              
+                 
+
+                <tr>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_2020-04-01" onclick="select_date('2020-04-01');" class=" ">1 </td>
+                 
+                                    <td id="td_2020-04-02" onclick="select_date('2020-04-02');" class=" ">2 </td>
+                 
+                                    <td id="td_2020-04-03" onclick="select_date('2020-04-03');" class=" ">3 </td>
+                 
+                                    <td id="td_2020-04-04" onclick="select_date('2020-04-04');" class=" ">4 </td>
+                 
+                                    <td id="td_2020-04-05" onclick="select_date('2020-04-05');" class=" ">5 </td>
+                                </tr>
+
+                 
+
+                <tr>
+                 
+                                    <td id="td_2020-04-06" onclick="select_date('2020-04-06');" class=" ">6 </td>
+                 
+                                    <td id="td_2020-04-07" onclick="select_date('2020-04-07');" class=" ">7 </td>
+                 
+                                    <td id="td_2020-04-08" onclick="select_date('2020-04-08');" class=" ">8 </td>
+                 
+                                    <td id="td_2020-04-09" onclick="select_date('2020-04-09');" class=" ">9 </td>
+                 
+                                    <td id="td_2020-04-10" onclick="select_date('2020-04-10');" class=" ">10 </td>
+                 
+                                    <td id="td_2020-04-11" onclick="select_date('2020-04-11');" class=" ">11 </td>
+                 
+                                    <td id="td_2020-04-12" onclick="select_date('2020-04-12');" class=" ">12 </td>
+                                </tr>
+
+                 
+
+                <tr>
+                 
+                                    <td id="td_2020-04-13" onclick="select_date('2020-04-13');" class=" ">13 </td>
+                 
+                                    <td id="td_2020-04-14" onclick="select_date('2020-04-14');" class=" ">14 </td>
+                 
+                                    <td id="td_2020-04-15" onclick="select_date('2020-04-15');" class=" ">15 </td>
+                 
+                                    <td id="td_2020-04-16" onclick="select_date('2020-04-16');" class=" ">16 </td>
+                 
+                                    <td id="td_2020-04-17" onclick="select_date('2020-04-17');" class=" ">17 </td>
+                 
+                                    <td id="td_2020-04-18" onclick="select_date('2020-04-18');" class=" ">18 </td>
+                 
+                                    <td id="td_2020-04-19" onclick="select_date('2020-04-19');" class=" ">19 </td>
+                                </tr>
+
+                 
+
+                <tr>
+                 
+                                    <td id="td_2020-04-20" onclick="select_date('2020-04-20');" class=" ">20 </td>
+                 
+                                    <td id="td_2020-04-21" onclick="select_date('2020-04-21');" class=" ">21 </td>
+                 
+                                    <td id="td_2020-04-22" onclick="select_date('2020-04-22');" class=" ">22 </td>
+                 
+                                    <td id="td_2020-04-23" onclick="select_date('2020-04-23');" class=" ">23 </td>
+                 
+                                    <td id="td_2020-04-24" onclick="select_date('2020-04-24');" class=" ">24 </td>
+                 
+                                    <td id="td_2020-04-25" onclick="select_date('2020-04-25');" class=" ">25 </td>
+                 
+                                    <td id="td_2020-04-26" onclick="select_date('2020-04-26');" class=" ">26 </td>
+                                </tr>
+
+                 
+
+                <tr>
+                 
+                                    <td id="td_2020-04-27" onclick="select_date('2020-04-27');" class=" ">27 </td>
+                 
+                                    <td id="td_2020-04-28" onclick="select_date('2020-04-28');" class=" ">28 </td>
+                 
+                                    <td id="td_2020-04-29" onclick="select_date('2020-04-29');" class=" ">29 </td>
+                 
+                                    <td id="td_2020-04-30" onclick="select_date('2020-04-30');" class=" ">30 </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                                </tr>
+
+                              
+            </tbody></table>
+            </div>
+          </div>
+                     
+                    
+          
+                    <div id="month_5" class="card" style=" display:none; ">
+          
+          <div class="card-body">
+          
+            <div class="row col-md-12 pb-1">
+              
+                <div class="col-md-10">
+                  <h6 id="h05">May</h6>
+                </div>
+                
+                <div class="col-md-1">
+                                  <button type="button" onclick="show_month('<','5');" class="btn bg-dark btn-sm text-white">&lt;</button>
+                  
+                </div>  
+                <div class="col-md-1">
+                                </div>
+              
+            </div>
+            
+            <table id="05" class="table table-bordered text-center">  
+              <tbody><tr class="bg-info text-white">
+                <th class="text-center">MON</th>
+                <th class="text-center">TUE</th>
+                <th class="text-center">WED</th>
+                <th class="text-center">THU</th>
+                <th class="text-center">FRI</th>
+                <th class="text-center">SAT</th>
+                <th class="text-center">SUN</th>
+              </tr>
+              
+                 
+
+                <tr>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_1970-01-01" onclick="select_date('1970-01-01');" class=" "> </td>
+                 
+                                    <td id="td_2020-05-01" onclick="select_date('2020-05-01');" class=" ">1 </td>
+                 
+                                    <td id="td_2020-05-02" onclick="select_date('2020-05-02');" class=" ">2 </td>
+                 
+                                    <td id="td_2020-05-03" onclick="select_date('2020-05-03');" class=" ">3 </td>
+                                </tr>
+
+                 
+
+                <tr>
+                 
+                                    <td id="td_2020-05-04" onclick="select_date('2020-05-04');" class=" ">4 </td>
+                 
+                                    <td id="td_2020-05-05" onclick="select_date('2020-05-05');" class=" ">5 </td>
+                 
+                                    <td id="td_2020-05-06" onclick="select_date('2020-05-06');" class=" ">6 </td>
+                 
+                                    <td id="td_2020-05-07" onclick="select_date('2020-05-07');" class=" ">7 </td>
+                 
+                                    <td id="td_2020-05-08" onclick="select_date('2020-05-08');" class=" ">8 </td>
+                 
+                                    <td id="td_2020-05-09" onclick="select_date('2020-05-09');" class=" ">9 </td>
+                 
+                                    <td id="td_2020-05-10" onclick="select_date('2020-05-10');" class=" ">10 </td>
+                                </tr>
+
+                 
+
+                <tr>
+                 
+                                    <td id="td_2020-05-11" onclick="select_date('2020-05-11');" class=" ">11 </td>
+                 
+                                    <td id="td_2020-05-12" onclick="select_date('2020-05-12');" class=" ">12 </td>
+                 
+                                    <td id="td_2020-05-13" onclick="select_date('2020-05-13');" class=" ">13 </td>
+                 
+                                    <td id="td_2020-05-14" onclick="select_date('2020-05-14');" class=" ">14 </td>
+                 
+                                    <td id="td_2020-05-15" onclick="select_date('2020-05-15');" class=" ">15 </td>
+                 
+                                    <td id="td_2020-05-16" onclick="select_date('2020-05-16');" class=" ">16 </td>
+                 
+                                    <td id="td_2020-05-17" onclick="select_date('2020-05-17');" class=" ">17 </td>
+                                </tr>
+
+                 
+
+                <tr>
+                 
+                                    <td id="td_2020-05-18" onclick="select_date('2020-05-18');" class=" ">18 </td>
+                 
+                                    <td id="td_2020-05-19" onclick="select_date('2020-05-19');" class=" ">19 </td>
+                 
+                                    <td id="td_2020-05-20" onclick="select_date('2020-05-20');" class=" ">20 </td>
+                 
+                                    <td id="td_2020-05-21" onclick="select_date('2020-05-21');" class=" ">21 </td>
+                 
+                                    <td id="td_2020-05-22" onclick="select_date('2020-05-22');" class=" ">22 </td>
+                 
+                                    <td id="td_2020-05-23" onclick="select_date('2020-05-23');" class=" ">23 </td>
+                 
+                                    <td id="td_2020-05-24" onclick="select_date('2020-05-24');" class=" ">24 </td>
+                                </tr>
+
+                 
+
+                <tr>
+                 
+                                    <td id="td_2020-05-25" onclick="select_date('2020-05-25');" class=" ">25 </td>
+                 
+                                    <td id="td_2020-05-26" onclick="select_date('2020-05-26');" class=" ">26 </td>
+                 
+                                    <td id="td_2020-05-27" onclick="select_date('2020-05-27');" class=" ">27 </td>
+                 
+                                    <td id="td_2020-05-28" onclick="select_date('2020-05-28');" class=" ">28 </td>
+                 
+                                    <td id="td_2020-05-29" onclick="select_date('2020-05-29');" class=" ">29 </td>
+                 
+                                    <td id="td_2020-05-30" onclick="select_date('2020-05-30');" class=" ">30 </td>
+                 
+                                    <td id="td_2020-05-31" onclick="select_date('2020-05-31');" class=" ">31 </td>
+                                </tr>
+
+                              
+            </tbody></table>
+            </div>
+          </div>
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                            </div>
+        
+        <div class="col-md-6" id="div_secondary_date">
+
+          <div id="slider_0" class="card card-body " style="">  
+            <div class="row">
+              <div class="col-md-2">
+              
+                <div id="m_0" class="bg-info text-center text-white rounded-top" style="width:60px;height:20px;font-size:10px;">March</div> 
+                <div class="border border-info text-center rounded-bottom" style="width:60px;height:40px;">
+                  <h4 class="pt-1" id="c0">12</h4>
+                </div>  
+                
+              </div>
+              
+              <div class="col-md-8">
+                <div id="time-range">
+                
+                  <p> Time Range: 
+                  <span id="start_span_time_0">7:45 AM</span> - 
+                  <span id="end_span_time_0">3:30 PM</span></p>
+                  <div class="sliders_step0">
+                  
+                    <div id="time_0" class="slider-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 14.5833%; width: 64.5833%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 14.5833%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 79.1667%;"></span></div>
+                    
+                    <input type="hidden" name="booking_date[0][date]" id="date_0" value="2020-03-12">
+                    <input type="hidden" name="booking_date[0][start_time]" id="start_time_0" value="7:45 AM">
+                    <input type="hidden" name="booking_date[0][end_time]" id="end_time_0" value="3:30 PM">
+                    
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+  </div>
+
+          <div class="card card-body text-white bg-dark mt-3">
+            <h5 class="mt-0 border-bottom pb-2">Your Storage <button type="button" class="btn btn-outline-warning float-right btn-sm" data-toggle="modal" data-target="#storage-available">More Details</button></h5>
+            <div class="row">
+              <div class="col-md-4 pr-md-0">
+                <img src="https://lh5.googleusercontent.com/p/AF1QipMGXadX2U25f3NBvxOqZddJUELAJ0XRhT7j00Y5=w203-h135-k-no" class="img-fluid" alt="...">
+              </div>
+              <div class="col-md-8">   
+              <h6><strong>STOR-N-LOCK Self Storage </strong></h6>                     
+             <p>9 AM - 7 PM <span class="badge badge-success float-right mt-1">Open</span></p>
+             <div class="row mx-0">
+               <div class="col h6 border border-warning rounded-left p-2 text-left">Storage Size: 5x5</div>
+               <div class="col h6 bg-warning rounded-right p-2 text-right text-dark">$39.00/month</div>
+             </div>
+
+              </div>
+            </div>
+        <hr class="my-2">
+            <h5 class="m-0">Select Storage Duration</h5>
+            <div class="form-row mt-2">
+              <div class="form-group col-md-3">
+              <select name="" id="" class="form-control form-control-sm m-0" placeholder="Storage Time">
+                <!--option value="">1 Week</option>
+                <option value="">15 Days</option>
+                <option value="">1 Month</option-->
+                <option value="">3 Months</option>
+                <option value="">6 Months</option>
+                <option value="">1 Year</option>
+              </select>
+              </div>
+              <div class="form-group col-md-9 text-right text-warning lead">
+                <strong>$117.00</strong>
+              </div>       
+            </div>               
+          </div>
+
+
+          <!-- Modal -->
+<div class="modal fade" id="storage-available" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">STOR-N-LOCK Self Storage</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <center>
+        <img src="https://lh5.googleusercontent.com/p/AF1QipMGXadX2U25f3NBvxOqZddJUELAJ0XRhT7j00Y5=w408-h272-k-no" class="img-fluid img-thumbnail m-auto" alt="...">
+        </center>
+        <div class="p-3">
+        <p class="border-bottom pb-2 mt-3"><i class="fa fa-map-marker mr-2"></i> <strong>Address:</strong> 375 Chapel Ln, Colorado Springs, CO 80919, United States</p>
+        <p class="border-bottom pb-2"><i class="fa fa-phone-alt mr-2"></i> <strong>Phone:</strong> +1 719-323-6510</p>
+        <p class="border-bottom pb-2"><i class="far fa-clock mr-2"></i> <strong>Timings:</strong> 8AM - 6PM <span class="badge badge-success float-right mt-1">Open</span></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        
+        </div>
+  
+          <div class="col-md-12 text-center">
+                    <hr>
+          <a href="/booking/162/2" name="btn_save_step_back" type="submit" value="5" class="btn btn btn-outline-dark m-auto  hvr-icon-wobble-horizontal"><i class="fas fa-chevron-left hvr-icon"></i> Back</a>
+          <a href="storage-summary.html" id="dataFormBtn" name="btn_submit" type="submit" value="3" class="btn btn-dark m-auto hvr-icon-wobble-horizontal">Save &amp; Continue <i class="fas fa-chevron-right hvr-icon"></i></a>
+        </div>
+
+            </div>
+            
+      
+      </div>
+  
+    </form>
+
+
+
+      </div>
+
+    </section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIUaBvvlXdLIxkhAVVqQJC7jhSg98g7NE&libraries=places"></script>
+
+<!--
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/asset/js/custom.js"></script>
+<script type="text/javascript" src="http://relo.thesiriussolutions.com/main/vendor/moment/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/materialize/js/materialize.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/air-datepicker/dist/js/datepicker.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/air-datepicker/dist/js/i18n/datepicker.en.js"></script>
+
+
+
+</body>
+</html>

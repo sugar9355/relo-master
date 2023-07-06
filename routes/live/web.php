@@ -1,0 +1,229 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| User Authentication Routes
+|--------------------------------------------------------------------------
+*/
+
+Auth::routes();
+
+Route::get('auth/facebook', 'Auth\SocialLoginController@redirectToFaceBook');
+Route::get('auth/facebook/callback', 'Auth\SocialLoginController@handleFacebookCallback');
+Route::get('auth/google', 'Auth\SocialLoginController@redirectToGoogle');
+Route::get('auth/google/callback', 'Auth\SocialLoginController@handleGoogleCallback');
+Route::post('account/kit', 'Auth\SocialLoginController@account_kit')->name('account.kit');
+
+/*
+|--------------------------------------------------------------------------
+| Provider Authentication Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::group(['prefix' => 'provider'], function () {
+
+    Route::get('auth/facebook', 'Auth\SocialLoginController@providerToFaceBook');
+    Route::get('auth/google', 'Auth\SocialLoginController@providerToGoogle');
+
+    Route::get('/login', 'ProviderAuth\LoginController@showLoginForm');
+    Route::post('/login', 'ProviderAuth\LoginController@login');
+    Route::post('/logout', 'ProviderAuth\LoginController@logout');
+
+    Route::get('/register', 'ProviderAuth\RegisterController@showRegistrationForm');
+    Route::post('/register', 'ProviderAuth\RegisterController@register');
+
+    Route::post('/password/email', 'ProviderAuth\ForgotPasswordController@sendResetLinkEmail');
+    Route::post('/password/reset', 'ProviderAuth\ResetPasswordController@reset');
+    Route::get('/password/reset', 'ProviderAuth\ForgotPasswordController@showLinkRequestForm');
+    Route::get('/password/reset/{token}', 'ProviderAuth\ResetPasswordController@showResetForm');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Admin Authentication Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/login', 'AdminAuth\LoginController@showLoginForm');
+    Route::post('/login', 'AdminAuth\LoginController@login');
+    Route::post('/store', 'AdminAuth\LoginController@store');
+    Route::post('/logout', 'AdminAuth\LoginController@logout');
+
+    Route::post('/password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail');
+    Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset');
+    Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm');
+    Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Dispatcher Authentication Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::group(['prefix' => 'dispatcher'], function () {
+    Route::get('/login', 'DispatcherAuth\LoginController@showLoginForm');
+    Route::post('/login', 'DispatcherAuth\LoginController@login');
+    Route::post('/logout', 'DispatcherAuth\LoginController@logout');
+
+    Route::post('/password/email', 'DispatcherAuth\ForgotPasswordController@sendResetLinkEmail');
+    Route::post('/password/reset', 'DispatcherAuth\ResetPasswordController@reset');
+    Route::get('/password/reset', 'DispatcherAuth\ForgotPasswordController@showLinkRequestForm');
+    Route::get('/password/reset/{token}', 'DispatcherAuth\ResetPasswordController@showResetForm');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Fleet Authentication Routes
+|--------------------------------------------------------------------------
+*/
+
+
+Route::group(['prefix' => 'fleet'], function () {
+    Route::get('/login', 'FleetAuth\LoginController@showLoginForm');
+    Route::post('/login', 'FleetAuth\LoginController@login');
+    Route::post('/logout', 'FleetAuth\LoginController@logout');
+
+    Route::post('/password/email', 'FleetAuth\ForgotPasswordController@sendResetLinkEmail');
+    Route::post('/password/reset', 'FleetAuth\ResetPasswordController@reset');
+    Route::get('/password/reset', 'FleetAuth\ForgotPasswordController@showLinkRequestForm');
+    Route::get('/password/reset/{token}', 'FleetAuth\ResetPasswordController@showResetForm');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Account Authentication Routes
+|--------------------------------------------------------------------------
+*/
+
+
+Route::group(['prefix' => 'account'], function () {
+    Route::get('/login', 'AccountAuth\LoginController@showLoginForm');
+    Route::post('/login', 'AccountAuth\LoginController@login');
+    Route::post('/logout', 'AccountAuth\LoginController@logout');
+
+    Route::get('/register', 'AccountAuth\RegisterController@showRegistrationForm');
+    Route::post('/register', 'AccountAuth\RegisterController@register');
+
+    Route::post('/password/email', 'AccountAuth\ForgotPasswordController@sendResetLinkEmail');
+    Route::post('/password/reset', 'AccountAuth\ResetPasswordController@reset');
+    Route::get('/password/reset', 'AccountAuth\ForgotPasswordController@showLinkRequestForm');
+    Route::get('/password/reset/{token}', 'AccountAuth\ResetPasswordController@showResetForm');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+*/
+// Route::get("/", 'HomeController@booking_form');
+// Route::post("/", 'HomeController@storeService');
+
+//  ================ booking form =====================
+		Route::get('/', 'Auth\LoginController@showLoginForm');
+		Route::any('/booking/{booking_id?}/{step?}', 'HomeController@booking')->name('booking');
+		
+//  ================ booking form =====================
+
+Route::get("/map", 'HomeController@showMap');
+
+Route::post("/map", "HomeController@storeTempMapLocation");
+
+Route::get('/date', 'HomeController@showDate');
+Route::post("/date", "HomeController@storeTempDate");
+
+Route::get('/drop_date', 'HomeController@showDropDate');
+Route::post("/drop_date", "HomeController@storeTempDropDate");
+
+Route::get('/location', 'HomeController@location');
+Route::get('/get_ratio/{id}', 'HomeController@getRatio');
+Route::get('/get_items/{id}', 'HomeController@getItemsByCategoryId');
+Route::post('add_to_cart/{id}', 'HomeController@addToCart');
+
+Route::get('testPay', 'HomeController@testPay');
+
+Route::get("update_junk/{index}/{qty}", "HomeController@updateJunk");
+Route::get("add_to_junk/{id}", "HomeController@addJunk");
+
+Route::group(['middleware' => "web"], function (){
+    Route::post('location/store', 'HomeController@storeTempLocation');
+    Route::get('shop', 'HomeController@shop');
+    Route::get('add_preset_cart/{id}', 'HomeController@addPreSetCart');
+    Route::get('get_cart', 'HomeController@getSuccessResponse');
+    Route::post('remove_to_cart/{id}', 'HomeController@removeToCart');
+    Route::get('get_questions/{id}/{itemIds}', 'HomeController@getQuestions');
+    Route::get('cart', 'HomeController@checkoutShow');
+    Route::get('/insurance', 'HomeController@insurance');
+    Route::post('/insurance', 'HomeController@storeInsurance');
+    Route::post('checkout', 'HomeController@checkout');
+    Route::get('thank-you', 'HomeController@thankYou');
+});
+
+/*Route::get('/initsetup', function () {
+    return Setting::all();
+});*/
+
+/*Route::get('/ride', function () {
+    return view('ride');
+});
+
+Route::get('/drive', function () {
+    return view('drive');
+});*/
+
+/*Route::get('privacy', function () {
+    $page = 'page_privacy';
+    $title = 'Privacy Policy';
+    return view('static', compact('page', 'title'));
+});*/
+
+/*
+|--------------------------------------------------------------------------
+| User Routes
+|--------------------------------------------------------------------------
+*/
+
+/*Route::get('/dashboard', 'HomeController@index');*/
+
+// user profiles
+Route::get('/profile', 'HomeControllerBackup@profile');
+Route::get('/edit/profile', 'HomeControllerBackup@edit_profile');
+Route::post('/profile', 'HomeControllerBackup@update_profile');
+
+// update password
+Route::get('/change/password', 'HomeControllerBackup@change_password');
+Route::post('/change/password', 'HomeControllerBackup@update_password');
+
+/*// ride
+Route::get('/confirm/ride', 'RideController@confirm_ride');
+Route::post('/create/ride', 'RideController@create_ride');
+Route::post('/cancel/ride', 'RideController@cancel_ride');
+Route::get('/onride', 'RideController@onride');
+Route::post('/payment', 'PaymentController@payment');
+Route::post('/rate', 'RideController@rate');*/
+
+/*// status check
+Route::get('/status', 'RideController@status');*/
+
+// trips
+Route::get('/trips', 'HomeControllerBackup@trips');
+Route::get('/book_now/{type}/{id}', 'HomeController@bookNow');
+Route::get('/upcoming/trips', 'HomeControllerBackup@upcoming_trips');
+Route::get('/trip/show/{type}/{id}', 'HomeControllerBackup@showTrip');
+Route::get('/trip/storage/item/{id}', 'HomeControllerBackup@getStorageItems');
+Route::post('/trip/storage/return/{id}', 'HomeControllerBackup@storeReturnStorageRequest')->name('store.storage.return');
+
+/*// wallet
+Route::get('/wallet', 'HomeController@wallet');
+Route::post('/add/money', 'PaymentController@add_money');*/
+
+// payment
+Route::get('/payment', 'HomeControllerBackup@payment');
+
+// card
+Route::resource('card', 'Resource\CardResource');
+
+/*// promotions
+Route::get('/promotions', 'HomeController@promotions_index')->name('promocodes.index');
+Route::post('/promotions', 'HomeController@promotions_store')->name('promocodes.store');*/

@@ -1,0 +1,25 @@
+alter table booking_form_location add column stair_loc varchar(20) default null after stair_type;
+alter table booking_form_location add column walk_min varchar(20) default null after walk_time;
+alter table booking_form_location add column walk_sec varchar(20) default null after walk_min;
+alter table dlevels add column roles varchar(100) default null after elevator;
+
+CREATE TABLE  `crew_combination` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `dlevel_id` int(11) not null,
+  `roles` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `levels` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+alter table roles add column hourly_rate varchar(20) Default null after operator;
+
+
+alter table booking_form add column time_from_hub int(10) default null after d_address;
+alter table booking_form add column time_to_hub int(10) default null after time_from_hub;
+alter table crew_combination add column crew_ratio varchar(10) default 0 after levels;
+
+alter table booking_form add column dlevel int(5) default null after insurance;
+alter table booking_form add column crew varchar(50) default null after crew_count;

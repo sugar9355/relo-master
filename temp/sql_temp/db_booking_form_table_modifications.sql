@@ -1,0 +1,1 @@
+ALTER TABLE `booking_form` ADD `kit` varchar(20) NULL;

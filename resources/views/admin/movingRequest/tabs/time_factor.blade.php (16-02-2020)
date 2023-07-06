@@ -1,0 +1,9 @@
+<div class="form-group">
+<div class="col-md-12">   
+
+	@include('admin.movingRequest.includes.progress_1') 
+	@include('admin.movingRequest.includes.progress_2') 
+	@include('admin.movingRequest.includes.progress_3') 
+	
+</div>
+</div>

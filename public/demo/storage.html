@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Location Details</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/1cb4e2d48a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" />
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/style.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/hover-min.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/animate.css">    
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/main/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/air-datepicker/dist/css/datepicker.min.css">
+
+
+
+
+</head>
+<body>
+  <!--START HEADER-->
+
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand clip-right-chevron" href="/">
+        <img src="http://relo.thesiriussolutions.com/asset/img/Capture.png" alt="Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="http://relo.thesiriussolutions.com/payment">Payment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Past</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Creadits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>          
+        </ul>
+
+        <div class="dropdown ml-lg-3">
+          <a class="btn btn-warning dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Hi, arsal
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" class="/trips" href="/dashboard">Overview</a>
+            <form id="logout-form" action="http://relo.thesiriussolutions.com/logout" method="POST"
+            style="display: none;"><input type="hidden" name="_token" value="7PoJD9uexqzgTns0Z0Ml9aglC7x2KwAykuj4ihQI"></form>        
+            <a class="dropdown-item" href="http://relo.thesiriussolutions.com/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="container-fluid">
+    <div class="row text-center header-breadcumb">
+      <div class="breadcrumb w-100 d-md-flex">        
+
+         <a class="breadcrumb__step  bg-warning  col" href="/booking/175/1" style="text-decoration: none;">Services</a>
+        <a class="breadcrumb__step  breadcrumb__step--active  col" href="/booking/175/2" style="text-decoration: none;">Storage & Packages</a>
+        <a class="breadcrumb__step  col" href="/booking/175/6" style="text-decoration: none;">Inventory</a>
+        <a class="breadcrumb__step  col" href="/booking/175/6" style="text-decoration: none;">Dates</a>
+        <a class="breadcrumb__step  col" href="/booking/175/7" style="text-decoration: none;">Summary</a>
+
+
+      </div>
+    </div>
+  </div>
+
+    <section class="content">
+
+      <div class="container my-5"> 
+        <h4 class="text-center animated fadeIn delay-0-2s">Storage & Packages</h4>
+        <hr>
+        <form action="/booking/175" method="post" enctype="multipart/form-data">
+
+          <input type="hidden" name="_token" value="dlqdtkaQKCSvrJUIMDsn02e9OTaNBA9UojYVRtcK">
+
+          <div class="row">
+
+            <div class="col-md-4">
+              <div class="card mb-3 animated slideInRight delay-0-2s">
+                <div class="card-body hvr-shadow d-block">                            
+                  <h4> Your Location <i class="fas fa-shipping-fast fa-flip-horizontal float-right animated slideInLeft delay-1s"></i></h4>
+                  <hr>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                      </div>
+
+                      <input class="form-control m-0" id="start" name="location[]" value="" type="text" placeholder="Start Location" required>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+              
+              <style>
+                #nav-tab .active{
+                  color: #ffffff;
+                  background-color: #333;
+
+                }
+              </style>
+
+              <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Storage</a>
+                  <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Search for Storage</a>
+                </div>
+              </nav>
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    
+                  <div class=" card card-body">
+                    <div class="form-group">
+                    <label for="">Storage Location</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                      </div>
+
+                      <input class="form-control m-0" id="start" name="location[]" value="" type="text" placeholder="Storage Location" required>
+                    </div>
+                  </div>
+                  </div>
+
+
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                <div class="card card-body mb-3">
+                  <div class="form-group">
+                    <label for="">Storage Location</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                      </div>
+                      <input class="form-control m-0" id="start" name="location[]" value="" type="text" placeholder="Storage Location" required>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="">Storage Size(s)</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                      </div>
+                      <select name="" id="" class="form-control m-0" placeholder="Storage Size">
+                        <option value="">5x5</option>
+                        <option value="">5x10</option>
+                        <option value="">5x15</option>
+                        <option value="">10x10</option>
+                        <option value="">10x15</option>
+                        <option value="">10x20</option>
+                        <option value="">10x25</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <button class="btn btn-dark"><i class="fa fa-search my-2"></i> Search</button>
+
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+
+            <div class="col-md-8 animated fadeIn">
+
+              <div id="map" style="width:100%;height:300px;background:#ccc">
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d156728.21244527388!2d-104.8642469442609!3d38.8381588616577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sstorages%20in%20colarado!5e0!3m2!1sen!2s!4v1583781733447!5m2!1sen!2s" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+              </div>
+
+              <hr>
+
+                  <div class="card card-body mb-3">
+                    <h5 class="mt-0 border-bottom pb-2">STOR-N-LOCK Self Storage <span class="float-right bg-warning rounded px-3 py-1">5x5 $39.00<small>/month</small></span></h5>
+                    <div class="row">
+                      <div class="col-md-4 pr-md-0">
+                        <img src="https://lh5.googleusercontent.com/p/AF1QipMGXadX2U25f3NBvxOqZddJUELAJ0XRhT7j00Y5=w203-h135-k-no" class="img-fluid" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="row">
+                      <div class="col-md-12 mb-2"><i class="fa fa-map-marker mr-2"></i> <small><strong>Address:</strong></small><br> 375 Chapel Ln, Colorado Springs, CO 80919, United States</div>
+                      <div class="col-md-6 mb-2"><i class="fa fa-phone-alt mr-2"></i> <small><strong>Phone:</strong></small><br> +1 719-323-6510</div>
+                      <div class="col-md-6 mb-2"><i class="far fa-clock mr-2"></i> <small><strong>Timings:</strong></small><br> 8AM - 6PM <span class="badge badge-success float-right mt-1">Open</span></div>
+                      </div>
+
+                     <div class="btn-group btn-group-sm mt-2 w-100" role="group">
+                        <a type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#storage-available">More Details</a>
+                        <a href="storage-i.html" type="button" class="btn btn-warning">Select</a>
+                      </div>
+                      </div>
+                    </div>                    
+                  </div>
+
+                  <div class="card card-body mb-3">
+                    <h5 class="mt-0 border-bottom pb-2">STOR-N-LOCK Self Storage <span class="float-right bg-warning rounded px-3 py-1">5x5 $39.00<small>/month</small></span></h5>
+                    <div class="row">
+                      <div class="col-md-4 pr-md-0">
+                        <img src="https://lh5.googleusercontent.com/p/AF1QipMGXadX2U25f3NBvxOqZddJUELAJ0XRhT7j00Y5=w203-h135-k-no" class="img-fluid" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="row">
+                      <div class="col-md-12 mb-2"><i class="fa fa-map-marker mr-2"></i> <small><strong>Address:</strong></small><br> 375 Chapel Ln, Colorado Springs, CO 80919, United States</div>
+                      <div class="col-md-6 mb-2"><i class="fa fa-phone-alt mr-2"></i> <small><strong>Phone:</strong></small><br> +1 719-323-6510</div>
+                      <div class="col-md-6 mb-2"><i class="far fa-clock mr-2"></i> <small><strong>Timings:</strong></small><br> 8AM - 6PM <span class="badge badge-success float-right mt-1">Open</span></div>
+                      </div>
+
+                     <div class="btn-group btn-group-sm mt-2 w-100" role="group">
+                        <a type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#storage-available">More Details</a>
+                        <a href="storage-i.html" type="button" class="btn btn-warning">Select</a>
+                      </div>
+                      </div>
+                    </div>                    
+                  </div>
+
+                  <div class="card card-body mb-3">
+                    <h5 class="mt-0 border-bottom pb-2">STOR-N-LOCK Self Storage <span class="float-right bg-warning rounded px-3 py-1">5x5 $39.00<small>/month</small></span></h5>
+                    <div class="row">
+                      <div class="col-md-4 pr-md-0">
+                        <img src="https://lh5.googleusercontent.com/p/AF1QipMGXadX2U25f3NBvxOqZddJUELAJ0XRhT7j00Y5=w203-h135-k-no" class="img-fluid" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="row">
+                      <div class="col-md-12 mb-2"><i class="fa fa-map-marker mr-2"></i> <small><strong>Address:</strong></small><br> 375 Chapel Ln, Colorado Springs, CO 80919, United States</div>
+                      <div class="col-md-6 mb-2"><i class="fa fa-phone-alt mr-2"></i> <small><strong>Phone:</strong></small><br> +1 719-323-6510</div>
+                      <div class="col-md-6 mb-2"><i class="far fa-clock mr-2"></i> <small><strong>Timings:</strong></small><br> 8AM - 6PM <span class="badge badge-success float-right mt-1">Open</span></div>
+                      </div>
+
+                     <div class="btn-group btn-group-sm mt-2 w-100" role="group">
+                        <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#storage-available">More Details</button>
+                        <button type="button" class="btn btn-warning">Select</button>
+                      </div>
+                      </div>
+                    </div>                    
+                  </div>
+            </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="storage-available" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">STOR-N-LOCK Self Storage</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <center>
+        <img src="https://lh5.googleusercontent.com/p/AF1QipMGXadX2U25f3NBvxOqZddJUELAJ0XRhT7j00Y5=w408-h272-k-no" class="img-fluid img-thumbnail m-auto" alt="...">
+        </center>
+        <div class="p-3">
+        <p class="border-bottom pb-2 mt-3"><i class="fa fa-map-marker mr-2"></i> <strong>Address:</strong> 375 Chapel Ln, Colorado Springs, CO 80919, United States</p>
+        <p class="border-bottom pb-2"><i class="fa fa-phone-alt mr-2"></i> <strong>Phone:</strong> +1 719-323-6510</p>
+        <p class="border-bottom pb-2"><i class="far fa-clock mr-2"></i> <strong>Timings:</strong> 8AM - 6PM <span class="badge badge-success float-right mt-1">Open</span></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+            <div class="col-md-12 text-center">
+              <hr>
+              <a href="/booking/175/1" name="btn_save_step_back" type="submit" value="5" class="btn btn-outline-dark m-auto  hvr-icon-wobble-horizontal" ><i class="fas fa-chevron-left hvr-icon"></i> Back</a>
+              <button id="dataFormBtn" name="btn_submit" type="submit" value="2" class="btn btn-dark m-auto hvr-icon-wobble-horizontal">Save & Continue  <i class="fas fa-chevron-right hvr-icon"></i></button>
+
+            </div>
+
+          </div>
+
+
+        </form>
+
+
+
+      </div>
+
+    </section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIUaBvvlXdLIxkhAVVqQJC7jhSg98g7NE&libraries=places"></script>
+
+<!--
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/asset/js/custom.js"></script>
+<script type="text/javascript" src="http://relo.thesiriussolutions.com/main/vendor/moment/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/materialize/js/materialize.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/air-datepicker/dist/js/datepicker.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/air-datepicker/dist/js/i18n/datepicker.en.js"></script>
+
+
+
+</body>
+</html>

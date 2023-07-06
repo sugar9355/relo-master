@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>RELO Services</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/1cb4e2d48a.js" crossorigin="anonymous"></script>
+  <!--link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" />
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/style.css"-->
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/hover-min.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/animate.css">    
+  <!--link rel="stylesheet" href="http://relo.thesiriussolutions.com/main/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/air-datepicker/dist/css/datepicker.min.css"-->
+
+
+<!--script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jstat/1.7.0/jstat.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script-->
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500&display=swap');
+    :root {
+    --dark: #343A40 !important;
+    }
+    nav{
+      border-radius: 0;
+      background-color: var(--dark)
+    }
+    .navbar-brand{
+      font-size: 2.5em;
+      font-weight: 400;
+    }
+    .nav-link{
+      font-size: 18px;
+      padding-right:1em !important;
+      padding-left:1em  !important;
+    }
+    h1{
+      font-size: 2.6em;
+      font-family: 'Candal', sans-serif;
+    }
+    #home-head {
+      padding: 50px 0;
+    }
+    #home-head .circle{
+      position: relative;
+      left: -5%;
+      width: 37rem;
+      height: 37rem;
+      padding:7rem 5rem 7rem 6rem;
+      border-radius: 50%;
+      box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.18);
+      background: rgba(255,193,7,1);
+      background: -moz-radial-gradient(center, ellipse cover, rgba(255,193,7,1) 0%, rgba(216,164,8,1) 100%);
+      background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,193,7,1)), color-stop(100%, rgba(216,164,8,1)));
+      background: -webkit-radial-gradient(center, ellipse cover, rgba(255,193,7,1) 0%, rgba(216,164,8,1) 100%);
+      background: -o-radial-gradient(center, ellipse cover, rgba(255,193,7,1) 0%, rgba(216,164,8,1) 100%);
+      background: -ms-radial-gradient(center, ellipse cover, rgba(255,193,7,1) 0%, rgba(216,164,8,1) 100%);
+      background: radial-gradient(ellipse at center, rgba(255,193,7,1) 0%, rgba(216,164,8,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc107', endColorstr='#d8a408', GradientType=1 );
+    }
+    #home-head .circle .btn-light{      
+      font-size: 1.5em;
+      padding-right: 3em;
+      padding-left: 3em;
+      min-width: 45%;
+      background-color: #fff;
+    }
+    #home-head .circle .btn-dark{      
+      font-size: 1.5em;
+      padding-right: 3em;
+      padding-left: 3em;
+      min-width: 45%;
+    }
+    #home-head .info-graph{
+      width: 55%;
+      height: 100%;
+      display: block;
+      right: 0;
+      position: absolute;
+      background: url(info-graph.png) no-repeat right top;
+      background-size: contain;
+      margin-top: 3%;
+    }
+    #home-head .info-graph .truck{
+      width: 55px;
+      height: 55px;
+      display: block;
+      top: 19%;
+      left: 20%;
+      position: relative;
+      background: url(awesome-truck.png) no-repeat right top;
+      background-size: contain;
+      animation: truck 35s linear 5s infinite alternate;
+    }
+
+    @keyframes truck {
+      0%   {left: 20%; top: 19%}
+      50%  {left: 50%; top: 20%}
+      100% {left: 40%; top: 19%}
+    }
+    
+    .servicesbox{
+      width: 80%;
+      display: block;
+      position: relative;
+      padding: 3em 9em 3em 3em;
+      background-color: #eeeeee ;
+    }
+    .servicesbox img{
+      right: -33%;
+      top: 4%;
+      height: 88% ;
+      width: auto;
+      border-radius: 15px;
+      position: absolute;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.18);
+    }
+    .step-list{
+      line-height: 2.5em;
+      list-style: none;
+      padding-left: 0px;
+    }
+    .step-list li{
+      font-size: 18px;
+      padding-left: 22px;
+      position: relative;
+      z-index: 1;
+      counter-increment: step;
+    }
+    .step-list li:before{
+      top: 1px;
+      left: -7px;
+      z-index: 1;
+      position: absolute;
+      content:counter(step);
+    }
+    .step-list li:after{
+      content: '';
+      top: 9px;
+      display: block;
+      background-color: var(--warning);
+      width: 25px;
+      height: 25px;
+      font-size: 14px;
+      border-radius: 50%;
+      left: -15px;
+      padding: 0px;
+      margin: 0px;
+      padding-left:8px;
+      padding-bottom: 5px;
+      position: absolute;
+    }
+  </style>
+
+</head>
+<body>
+
+
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="#">Relo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav offset-md-2">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html#home-3">Service Areas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="services.html">Our Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Why Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Booking Process</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About Us</a>
+      </li>
+    </ul>
+  </div>
+    <a href="#" class="btn btn-warning float-right px-4">Live Quote</a>
+</nav>
+  </header>
+  
+  <section class="py-5" id="services">
+    <div class="container">
+
+      <div class="servicesbox">
+        <h1>MOVING SERVICES</h1>
+        <p>Whether you’re moving someplace new or just want to complete a few projects around your current home, we can arrange the moving services you need—at simple, straightforward rates.</p>
+        <div class="row">
+          <div class="col">
+            <div class="card card-body bg-warning rounded h-100 text-center">
+
+            Small Move
+          </div>
+          </div>
+          <div class="col">
+            <div class="card card-body bg-warning rounded h-100 text-center">
+
+            Store Pickup & Delivery
+          </div>
+          </div>
+          <div class="col">
+            <div class="card card-body bg-warning rounded h-100 text-center">
+
+            Storage
+          </div>
+          </div>
+          <div class="col">
+            <div class="card card-body bg-warning rounded h-100 text-center">
+
+            Junk
+          </div>
+          </div>
+        </div>
+        <img src="services-head.png" alt="">
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <img src="small-move.svg" alt="" class="img-fluid hvr-grow">
+        </div>
+        <div class="col-md-7 pl-4">
+         <h2>SMALL MOVE</h2>
+         <p class="lead"><strong>An Easy Way To Move 1 or 2 item</strong></p>
+         <ol class="step-list">
+           <li>Select service.</li>
+           <li>Select pick-up, destination, Location details, dates, Items & Insurance details.</li>
+           <li>Get estimated summary and place an order.</li>
+         </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+         <h2>Store Pickup & Delivery</h2>
+         <p class="lead"><strong>Get Your Purchase Home.</strong></p>
+         <ol class="step-list">
+           <li>Select service.</li>
+           <li>Select pick-up, destination, Location details, dates, Items & Insurance details.</li>
+           <li>Get estimated summary and place an order.</li>
+         </ol>
+        </div>
+        <div class="col-md-5">
+          <img src="store-pic-delivery.svg" alt="" class="img-fluid hvr-grow">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <img src="storage.svg" alt="" class="img-fluid hvr-grow">
+        </div>
+        <div class="col-md-7">
+         <h2>Store Pickup & Delivery</h2>
+         <p class="lead"><strong>Storage Subscription.</strong></p>
+         <ol class="step-list">
+          <li>Select service.</li>
+          <li>Select pick-up, destination, dates, Items & Insurance details.</li>
+          <li>Get estimated summary and place an order.</li>
+         </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+         <h2>Junk</h2>
+         <p class="lead"><strong>Discard  Unnecessary Items.</strong></p>
+         <ol class="step-list">
+          <li>Select service.</li>
+          <li>Select pick-up, destination & dates details.</li>
+          <li>Get estimated summary and place an order.</li>
+         </ol>
+        </div>
+        <div class="col-md-5">
+          <img src="junk.svg" alt="" class="img-fluid hvr-grow">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+
+</body>
+</html>

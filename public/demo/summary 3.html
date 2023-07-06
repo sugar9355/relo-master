@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>RELO Summary</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/1cb4e2d48a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" />
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/style.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/hover-min.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/asset/css/animate.css">    
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/main/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="http://relo.thesiriussolutions.com/air-datepicker/dist/css/datepicker.min.css">
+
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jstat/1.7.0/jstat.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+  
+  <script>
+    
+
+var data;
+var options;
+let chart;
+var stndDev = 1;
+var mean = 0;
+let xMin = -4.1;
+let xMax = 4.1;
+let xLeft = -2;
+let xRight = 2;
+
+google.charts.load("current", { packages: ["corechart"] });
+google.charts.setOnLoadCallback(prepareChart);
+
+function prepareChart() {
+  data = new google.visualization.DataTable();
+  setChartOptions();
+  addColumns();
+  addData();
+  drawChart();
+}
+function setChartOptions() {
+  options = { legend: "none" };
+  options.hAxis = {};
+  options.hAxis.minorGridlines = {};
+  options.hAxis.minorGridlines.count = 5;
+  return options;
+}
+function addColumns() {
+  data.addColumn("number", "X Value");
+  data.addColumn("number", "Y Value");
+  data.addColumn({ type: "boolean", role: "scope" });
+  data.addColumn({ type: "string", role: "style" });
+}
+function addData() {
+  data.addRows(createArray(xMin, xMax, xLeft, xRight, mean, stndDev));
+}
+function createArray(xMin, xMax, xLeft, xRight, mean, stndDev) {
+  let chartData = new Array([]);
+  let index = 0;
+  for (var i = xMin; i <= xMax; i += 0.1) {
+    chartData[index] = new Array(4);
+    chartData[index][0] = i;
+    chartData[index][1] = jStat.normal.pdf(i, mean, stndDev);
+
+    if (i < xLeft || i > xRight) {
+      chartData[index][2] = false;
+    }
+    chartData[index][3] =
+      "opacity: 1; + color: #ffc107; + stroke-color: black; ";
+
+    index++;
+  }
+  return chartData;
+}
+function drawChart() {
+  chart = new google.visualization.AreaChart(
+    document.getElementById("chart_div")
+  );
+  chart.draw(data, options);
+}
+
+// function clearCurrentData(){
+//    console.log("count before remove "+ data.getNumberOfRows());
+//   data.removeRows(0,data.getNumberOfRows());
+//    console.log("count after remove "+ data.getNumberOfRows());
+// }
+
+// function reDraw(){
+//   console.log("in redraw")
+//  clearCurrentData();
+//   data.addRows(createArray(-6, 6, -5, 5, 2, stndDev));
+//    drawChart(setChartOptions());
+// }
+
+// reDraw();
+
+  </script>
+
+
+</head>
+<body>
+  <!--START HEADER-->
+
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand clip-right-chevron" href="/">
+        <img src="http://relo.thesiriussolutions.com/asset/img/Capture.png" alt="Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="http://relo.thesiriussolutions.com/payment">Payment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Past</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Creadits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>          
+        </ul>
+
+        <div class="dropdown ml-lg-3">
+          <a class="btn btn-warning dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Hi, arsal
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" class="/trips" href="/dashboard">Overview</a>
+            <form id="logout-form" action="http://relo.thesiriussolutions.com/logout" method="POST"
+            style="display: none;"><input type="hidden" name="_token" value="7PoJD9uexqzgTns0Z0Ml9aglC7x2KwAykuj4ihQI"></form>        
+            <a class="dropdown-item" href="http://relo.thesiriussolutions.com/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row text-center header-breadcumb">
+      <div class="breadcrumb w-100 d-md-flex">        
+
+         <a class="breadcrumb__step  bg-warning  col" href="/booking/175/1" style="text-decoration: none;">Services</a>
+        <a class="breadcrumb__step  col" href="/booking/175/6" style="text-decoration: none;">Location</a>
+        <a class="breadcrumb__step  col" href="/booking/175/6" style="text-decoration: none;">Inventory</a>
+        <a class="breadcrumb__step  col" href="/booking/175/7" style="text-decoration: none;">Dates</a>
+        <a class="breadcrumb__step  breadcrumb__step--active  col" href="/booking/175/2" style="text-decoration: none;"><a class="breadcrumb__step  col" href="/booking/175/7" style="text-decoration: none;">Summary</a>
+      </div>
+    </div>
+  </div>
+
+<style>
+  #summary #locations .loc-edit{
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  #summary .custom-control input[type='radio'] + label:after, #summary .custom-control input[type='radio'] + label:before{
+    border-radius: 0;
+    background-color: transparent;
+    border-color: #333;
+  }
+ #summary .custom-control input[type='radio']:checked + label:after, #summary .custom-control input[type='radio']:checked + label:before{
+    border-radius: 0;
+    background-color: #333;
+    border-color: #333;
+  }
+.custom-control input[type='radio'] + label{
+  opacity: .5;
+  background-color: transparent;
+}
+.custom-control input[type='radio']:checked+label{
+  opacity: 1;
+  outline: none;
+}
+   #summary #insurancebox .media{
+    min-width: 190px;
+   }
+  #summary #insurancebox .media .btn{
+    padding: 2px 5px !important;
+    height: 50%;
+  }
+  #summary #insurancebox .media span{
+  }
+  #summary #insurancebox .media .btn:last-of-type{
+    background-color: #d39e00!important;
+  }
+  #chart_div{
+  width: 400px;
+  height: auto;
+  margin: auto;
+}
+
+.text-orange{
+  color: var(--orange)  
+}
+.hvr-sweep-to-right{
+	color:#ffffff;
+}
+.hvr-sweep-to-right:hover, .hvr-sweep-to-right:hover>*, .hvr-sweep-to-right:hover input[type='radio'] + label:before{
+	color: #ffffff !important;
+	border-color: #ffffff  !important;
+}
+.hvr-sweep-to-right:hover input[type='radio'] + label.text-dark{
+ 	color: #fff !important;
+ }
+.hvr-sweep-to-right:hover i{	
+	color: var(--white);
+}
+.hvr-sweep-to-right:before{
+	border-radius: 5px;
+	background-color: var(--dark);
+}
+.hvr-sweep-to-right:visited{
+	background-color: #333;
+}
+
+#summary #inventory .media{
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+#summary #inventory .media a{
+  width: 100px;
+}
+#summary #inventory .media .img-fluid{
+  width: auto;
+  height: auto;
+  max-height: 90px;
+  min-width: 70%;
+  margin: 5px 0px;
+}
+
+</style>
+
+
+
+  <section class="content py-3 px-md-3" id="summary">
+    <div class="container-fluid">
+      <div class="row text-muted">
+
+
+
+        <!--div class="col-md-3">
+          <div class="card card-body shadow">
+            <h5 class="border-bottom pb-2">Crew Required</h5>
+            <div class="bg-warning p-2 rounded mb-3">
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="man" id="man1" checked >
+              <label class="custom-control-label w-100 text-white" for="man1">1 Man <span class="float-right"><img src="worker.svg" alt="" height="25" width="20" class="position-relative mb-1"></span></label>
+            </div>
+          </div>
+          <div class="bg-light p-2 rounded mb-3 hvr-shadow hvr-icon-bob">
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="man" id="man2" >
+              <label class="custom-control-label w-100 text-dark" for="man2">2 Man <span class="float-right"><i class="fas fa-people-carry fa-lg hvr-icon"></i></span></label>
+            </div>
+          </div>
+          <div class="bg-light p-2 rounded mb-2 hvr-shadow hvr-icon-bob">
+          <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" name="man" id="man3" >
+            <label class="custom-control-label w-100 text-dark" for="man3">3 Man <span class="float-right"><img src="worker.svg" alt="" height="25" width="20" class="position-relative mb-1 hvr-icon"> <i class="fas fa-people-carry fa-lg hvr-icon"></i></span></label>
+          </div>
+        </div>
+        <div class="bg-light p-2 rounded mb-2 hvr-shadow hvr-icon-bob">
+          <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" name="man" id="man4" >
+            <label class="custom-control-label w-100 text-dark" for="man4">4 Man <span class="float-right"><img src="worker.svg" alt="" height="25" width="20" class="position-relative mb-1 hvr-icon"> <i class="fas fa-people-carry fa-lg hvr-icon"></i> <i class="fas fa-people-carry fa-lg hvr-icon"></i></span></label>
+          </div>
+        </div>
+
+        <hr>
+
+        <h5 class="border-bottom pb-2 mt-3">Insurance </h5>
+            <div class="bg-light hvr-shadow hvr-icon-bob p-2 rounded mb-3">
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="insurance" id="insurance50" checked data-toggle="modal" data-target="#insurance-pop">
+              <label class="custom-control-label w-100 text-primary" for="insurance50">Recomended ($50) <i class="fas fa-info-circle text-muted hvr-icon"></i></label>
+            </div>
+          </div>
+          <div class="bg-light hvr-shadow hvr-icon-bob p-2 rounded mb-3">
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" name="insurance" id="insurance25" data-toggle="modal" data-target="#insurance-pop">
+              <label class="custom-control-label w-100 text-success" for="insurance25">Moderate ($25) <i class="fas fa-info-circle text-muted hvr-icon"></i></label>
+            </div>
+          </div>
+          <div class="bg-light hvr-shadow hvr-icon-bob p-2 rounded mb-2">
+          <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" name="insurance" id="insurance0" data-toggle="modal" data-target="#insurance-pop">
+            <label class="custom-control-label w-100 text-orange" for="insurance0">Standard ($0) <i class="fas fa-info-circle text-muted hvr-icon"></i></label>
+          </div>
+        </div>
+     
+          <div class="custom-control custom-radio mt-5 mb-2">
+            <input type="radio" class="custom-control-input" name="insurance" id="insuranceala" data-toggle="modal" data-target="#insurance-pop">
+            <label class="custom-control-label w-100 text-dark" for="insuranceala">Ala Caret</label>
+          </div> 
+
+          <input type="text" class="form-control" placeholder="Search">
+
+          <div class="bg-light p-2 rounded mb-2 mt-2 p-3">
+            <div class="d-flex mb-2">
+              <span><i class="fas fa-chair fa-2x mr-3"></i></span>  <span class="lead">Chair</span> 
+            </div>
+            <div class="w-50 text-left float-left">$0</div> <div class="w-50 text-right float-left">$50</div>
+            
+             <div class="text-center font-weight-bold">
+               <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3">
+             </div>
+            
+          </div>
+
+          <div class="bg-light p-2 rounded mb-2 mt-2 p-3">
+            <div class="d-flex mb-2">
+              <span><i class="fas fa-couch fa-2x mr-3"></i></span>  <span class="lead">Chair</span> 
+            </div>
+            <div class="w-50 text-left float-left">$0</div> <div class="w-50 text-right float-left">$50</div>
+            
+             <div class="text-center font-weight-bold">
+               <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3">
+             </div>
+            
+          </div>
+
+
+          <!- - Modal2 - ->
+                  <div class="modal fade" id="insurance-pop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h3 class="modal-title" id="staticBackdropLabel">Insurance ($50)</h3>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body bg-light">
+
+                          <div class="row text-center">
+                            <div class="col-md-3 mb-3">
+                              <div class="card border border-warning bg-warning text-dark w-100 shadow">
+                                <div class="card-header text-warning bg-transparent">
+                                  <i class="fas fa-thumbs-up fa-2x text-dark"></i>
+                                </div>
+                                <div class="card-body text-dark text-left px-2 py-2">
+                                    <h6 class="m-0">Recomended
+                                    <span class="float-right text-dark rounded bg-white px-2">$50</span></h6>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                              <div class="card border border-warning bg-white hvr-sweep-to-right text-dark w-100 shadow">
+                                <div class="card-header text-warning bg-transparent">
+                                  <i class="fas fa-door-open fa-2x"></i>
+                                </div>
+                                <div class="card-body text-dark text-left px-2 py-2">
+                                    <h6 class="m-0">Moderate
+                                    <span class="float-right text-dark rounded bg-white px-2">$25</span></h6>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                              <div class="card border border-warning bg-white hvr-sweep-to-right text-dark w-100 shadow">
+                                <div class="card-header text-warning bg-transparent">
+                                  <i class="fas fa-balance-scale fa-2x"></i>
+                                </div>
+                                <div class="card-body text-dark text-left px-2 py-2">
+                                    <h6 class="m-0">Standard
+                                    <span class="float-right text-dark rounded bg-white px-2">$0</span></h6>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                              <div class="card border border-warning bg-white hvr-sweep-to-right text-dark w-100 shadow">
+                                <div class="card-header text-warning bg-transparent">
+                                  <i class="fas fa-sliders-h fa-2x"></i>
+                                </div>
+                                <div class="card-body text-dark text-left px-2 py-2">
+                                    <h6 class="m-0">Ala Caret
+                                    <span class="float-right text-dark rounded bg-white px-2">-</span></h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="card mt-3">
+                            <div class="card-header bg-white">
+                              <h4><i class="fas fa-boxes mr-2"></i> Items <span class="float-right"><input type="text" class="form-control" placeholder="Search"></span></h4> 
+                            </div>
+                            <div class="card-body">
+
+                              <div class="row">
+                                <div class="col">
+                                  <div class="bg-light border border-warning p-2 rounded mb-2 mt-2 p-3 shadow">
+                              <div class="d-flex mb-2">
+                                <span><i class="fas fa-chair fa-2x mr-3"></i></span>  <span class="lead">Chair</span> 
+                              </div>
+                              <div class="w-50 text-left float-left">$0</div> <div class="w-50 text-right float-left">$50</div>
+                              
+                               <div class="text-center font-weight-bold">
+                                 <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3">
+                               </div>
+                              
+                            </div>
+
+                                </div>
+
+                                <div class="col">
+
+                          <div class="bg-light border border-warning p-2 rounded mb-2 mt-2 p-3 shadow">
+                            <div class="d-flex mb-2">
+                              <span><i class="fas fa-couch fa-2x mr-3"></i></span>  <span class="lead">Chair</span> 
+                            </div>
+                            <div class="w-50 text-left float-left">$0</div> <div class="w-50 text-right float-left">$50</div>
+                            
+                             <div class="text-center font-weight-bold">
+                               <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3">
+                             </div>
+                            
+                          </div>
+                                  
+                                </div>
+                              </div>
+                              
+
+                        
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-dark">Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+      </div>
+    </div--->
+
+        <div class="col-md-3">
+
+          <div id="inventory" class="card hvr-shadow">
+            <div class="card-header bg-white">
+                
+              <h5 class="m-0 font-weight-normal border-bottom pb-2"><i class="fas fa-boxes mr-2"></i> Inventory Items</h5>
+            
+              <form action="">
+                <div class="d-flex my-2">
+                  <div class="btn btn-outline-dark btn-sm col mr-md-2">Packaging</div>
+                  <div class="btn btn-outline-dark btn-sm col mr-md-2">Junk</div>
+                </div>
+                
+                <div class="input-group my-1">
+                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-light border" type="button" id="button-addon2"><i class="fa fa-search"></i> Search</button>
+                </div>
+              </div>
+              </form>
+                            
+            </div>
+            <div class="card-body">  
+               
+                  <div class="media">
+                    <a href="item-1.jpg" class="mr-2">
+                      <img src="item-1.jpg" class="img-fluid" width="60" height="60" alt="">
+                    </a>
+
+                    <div class="media-body">      
+
+                      <strong>Refrigerator</strong>
+
+                      <div class="w-100 d-flex py-1">
+                          <span class="d-block text-left">Qty:</span><span class="col text-right">1</span>
+                        </div>
+
+                        <form class="mt-1" id="ajaxform216" action="/booking/162" method="post" enctype="multipart/form-data">
+                        <div class="btn-group w-100" role="group">
+                          <button class="btn btn-outline-info btn-sm col-3" type="button" data-toggle="modal" data-target="#item_info_216"><i class="far fa-eye" aria-hidden="true"></i></button>
+                          <button class="btn btn-outline-danger btn-sm" type="button" data-toggle="modal" data-target="#item_delete216"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                          
+                          <input name="action" onclick="submitform('216','-');" type="submit" class="btn btn-outline-warning btn-sm fas fa-plus fa-lg" value="-" aria-hidden="true">
+                          <input name="action" onclick="submitform('216','+');" type="submit" value="+" class="btn btn-outline-success btn-sm fas fa-plus fa-lg" aria-hidden="true">
+ 
+                        </div>
+                        </form>    
+
+                            
+
+                    </div>
+
+                  </div>
+               
+
+               
+                  <div class="media">
+                    <a href="item-2.jpg" class="mr-2">
+                      <img src="item-2.jpg" class="img-fluid" width="60" height="60" alt="">
+                    </a>
+
+                    <div class="media-body">      
+
+                      <strong>Double Bed</strong>
+
+                      <div class="w-100 d-flex py-1">
+                        <span class="d-block text-left">Qty:</span><span class="col text-right">1</span>
+                      </div>
+
+                        <form class="mt-1" id="ajaxform216" action="/booking/162" method="post" enctype="multipart/form-data">
+
+                        <div class="btn-group w-100" role="group">
+                          <button class="btn btn-outline-info btn-sm" type="button" data-toggle="modal" data-target="#item_info_216"><i class="far fa-eye" aria-hidden="true"></i></button>
+                          <button class="btn btn-outline-danger btn-sm" type="button" data-toggle="modal" data-target="#item_delete216"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                          
+                          <input name="action" onclick="submitform('216','-');" type="submit" class="btn btn-outline-warning btn-sm fas fa-plus fa-lg" value="-" aria-hidden="true">
+                          <input name="action" onclick="submitform('216','+');" type="submit" value="+" class="btn btn-outline-success btn-sm fas fa-plus fa-lg" aria-hidden="true">
+ 
+                        </div>
+                        </form>    
+
+                          
+
+                    </div>
+
+                  </div>
+               
+
+                
+                  <div class="media">
+                    <a href="item-3.jpg" class="mr-2">
+                      <img src="item-3.jpg" class="img-fluid" width="60" height="60" alt="">
+                    </a>
+
+                    <div class="media-body">      
+
+                      <strong>Card Table</strong>
+
+                      
+                      <div class="w-100 d-flex py-1">
+                        <span class="d-block text-left">Qty:</span><span class="col text-right">1</span>
+                      </div>
+
+                        <form class="mt-1" id="ajaxform216" action="/booking/162" method="post" enctype="multipart/form-data">
+                          
+                        <div class="btn-group w-100" role="group">
+                          <button class="btn btn-outline-info btn-sm" type="button" data-toggle="modal" data-target="#item_info_216"><i class="far fa-eye" aria-hidden="true"></i></button>
+                          <button class="btn btn-outline-danger btn-sm" type="button" data-toggle="modal" data-target="#item_delete216"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                          
+                          <input name="action" onclick="submitform('216','-');" type="submit" class="btn btn-outline-warning btn-sm fas fa-plus fa-lg" value="-" aria-hidden="true">
+                          <input name="action" onclick="submitform('216','+');" type="submit" value="+" class="btn btn-outline-success btn-sm fas fa-plus fa-lg" aria-hidden="true">
+ 
+                         </div>
+                        </form>    
+    
+
+                    </div>
+
+                  </div>
+                
+
+                
+                  <div class="media">
+                    <a href="item-4.jpg" class="mr-2">
+                      <img src="item-4.jpg" class="img-fluid" width="60" height="60" alt="">
+                    </a>
+
+                    <div class="media-body">      
+
+                      <strong>Dinning Table</strong>
+
+                      <div class="w-100 d-flex py-1">
+                        <span class="d-block text-left">Qty:</span><span class="col text-right">1</span>
+                      </div> 
+
+                        <form class="mt-1" id="ajaxform216" action="/booking/162" method="post" enctype="multipart/form-data">
+
+                        <div class="btn-group w-100" role="group">
+                          <button class="btn btn-outline-info btn-sm" type="button" data-toggle="modal" data-target="#item_info_216"><i class="far fa-eye" aria-hidden="true"></i></button>
+                          <button class="btn btn-outline-danger btn-sm" type="button" data-toggle="modal" data-target="#item_delete216"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                          
+                          <input name="action" onclick="submitform('216','-');" type="submit" class="btn btn-outline-warning btn-sm fas fa-plus fa-lg" value="-" aria-hidden="true">
+                          <input name="action" onclick="submitform('216','+');" type="submit" value="+" class="btn btn-outline-success btn-sm fas fa-plus fa-lg" aria-hidden="true">
+                        </div>
+                        </form> 
+                          
+
+                         
+
+                    </div>
+
+                  </div>
+                
+
+         
+
+
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="col-md-5">          
+          <div class="card card-body hvr-shadow pb-1">
+
+            <h5 class="border-bottom pb-2">Trip  <a href="#" class="btn btn-outline-dark btn-sm float-right text-dark">Edit <i class="far fa-edit" aria-hidden="true"></i></a></h5>
+              <div class="row">
+                    <div class="col-md-12">
+                      <p><strong><i class="fa fa-location-arrow" aria-hidden="true"></i> Pickup Location</strong><br>
+                      40404 California Oaks Rd, Murrieta, CA 92562, United States</p>
+                    </div>
+                    <div class="col-md-12">
+                      <p><strong><i class="fa fa-map-marker-alt" aria-hidden="true"></i> Dropoff Location</strong><br>
+                      40404 California Oaks Rd, Murrieta, CA 92562, United States</p>
+                    </div>
+                    <div class="col-md-6">
+                      <p><strong><i class="far fa-calendar-check" aria-hidden="true"></i> Move Date</strong><br>
+                      12/03/2019</p>
+                    </div>
+                    <div class="col-md-6">
+                      <p><strong><i class="far fa-clock" aria-hidden="true"></i> Pickup Time</strong><br>
+                      11:30 AM</p>
+                    </div>
+                  </div>  
+            
+          </div>
+
+
+          <div class="card hvr-shadow mt-3">
+                <div class="card-body">
+
+                  <div class="row">
+                    <div class="col-2"><img src="pricing2.png" class="w-100" alt=""></div>
+                    <div class="col pl-0"><h5 class="m-0 font-weight-normal"> Selecting your move on any of the following dates will lower your pricing</h5></div>
+                  </div>
+
+                      <h5 class="m-0 w-100 d-block border-top pt-2 mt-2">Feburary <a href="#" class="btn btn-outline-dark btn-sm float-right"><i class="fa fa-angle-right"></i></a></h5>
+                      <table class="table table-bordered w-100 mt-3">
+                        <thead>
+                          <tr class="bg-light text-dark">
+                            <th>MON</th>
+                            <th>TUE</th>
+                            <th>WED</th>
+                            <th>THU</th>
+                            <th>FRI</th>
+                            <th>SAT</th>
+                            <th>SUN</th>
+                          </tr>
+                        </thead>
+                        <tbody class="text-center">
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                          </tr>
+                          <tr>
+                            <td class="bg-secondary"><a href="#" class="btn btn-link text-white btn-block p-0 position-relative"  data-toggle="modal" data-target="#staticBackdrop">3</a></td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                          </tr>
+                          <tr>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                            <td>16</td>
+                          </tr>
+                          <tr>
+                            <td>17</td>
+                            <td>18</td>
+                            <td>19</td>
+                            <td>20</td>
+                            <td>21</td>
+                            <td>22</td>
+                            <td>23</td>
+                          </tr>
+                          <tr>
+                            <td>24</td>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27</td>
+                            <td>28</td>
+                            <td>29</td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <!-- Modal2 -->
+                      <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="staticBackdropLabel">Confirm Date & Time</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body text-center">
+
+
+                              <div class="card w-25 text-center m-auto mb-4 shadow">
+                                <div class="card-header bg-warning p-2">
+                                  <h6 class="m-0">February</h6>
+                                </div>
+                                <div class="card-body">
+                                  <h2>29</h2>
+                                </div>
+                              </div>
+
+                              <h5 class="mt-4"><span class="bg-success px-3 py-0 rounded d-inline smaller mr-3"></span> Full Day Availablity</h5>
+
+                              
+                              <div class="form-group mt-5"><label class="font-weight-bold" for="customRange3">Time Range: 6:00 AM</label>
+                                <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3">
+                              </div>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-dark">Save</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                  
+                </div>
+              </div>
+
+        </div>
+
+
+         <div class="col-md-4">
+          <div class="card card-body hvr-shadow pt-0">
+             <div class="w-100 mb-3">
+                <div id="chart_div"></div>
+                <p class="lead text-center font-weight-bold">Price Estimation Graph</p>
+              </div>
+
+              <div class="card w-100 hvr-shadow">
+            <div class="card-header border-bottom-0 bg-transparent" data-toggle="collapse" data-target="#crew-box">
+              <h5 class="m-0">Crew Required <i class="fas fa-angle-down float-right"></i></h5>
+            </div>
+            <div class="card-body collapse border-top pt-2" id="crew-box">
+                <div class="w-100 bg-warning p-2 rounded mb-3">
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="man" id="man1" checked >
+                  <label class="custom-control-label w-100 text-white" for="man1">1 Man <span class="float-right"><img src="worker.svg" alt="" height="25" width="20" class="position-relative mb-1"></span></label>
+                </div>
+              </div>
+              <div class="w-100 bg-light p-2 rounded mb-3 hvr-shadow hvr-icon-bob">
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="man" id="man2" >
+                  <label class="custom-control-label w-100 text-dark" for="man2">2 Man <span class="float-right"><i class="fas fa-people-carry fa-lg hvr-icon"></i></span></label>
+                </div>
+              </div>
+              <div class="w-100 bg-light p-2 rounded mb-2 hvr-shadow hvr-icon-bob">
+              <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" name="man" id="man3" >
+                <label class="custom-control-label w-100 text-dark" for="man3">3 Man <span class="float-right"><img src="worker.svg" alt="" height="25" width="20" class="position-relative mb-1 hvr-icon"> <i class="fas fa-people-carry fa-lg hvr-icon"></i></span></label>
+              </div>
+            </div>
+            <div class="w-100 bg-light p-2 rounded mb-2 hvr-shadow hvr-icon-bob">
+              <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" name="man" id="man4" >
+                <label class="custom-control-label w-100 text-dark" for="man4">4 Man <span class="float-right"><img src="worker.svg" alt="" height="25" width="20" class="position-relative mb-1 hvr-icon"> <i class="fas fa-people-carry fa-lg hvr-icon"></i> <i class="fas fa-people-carry fa-lg hvr-icon"></i></span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+          <div class="card hvr-shadow mt-3 w-100">
+            <div class="card-header border-bottom-0 bg-transparent" data-toggle="collapse" data-target="#insurance-box">
+              <h5 class="m-0">Insurance  <i class="fas fa-angle-down float-right"></i></h5>
+            </div>
+            <div class="card-body collapse border-top pt-2" id="insurance-box">
+
+              <div class="w-100 bg-light hvr-shadow hvr-icon-bob p-2 rounded mb-3">
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="insurance" id="insurance50" checked data-toggle="modal" data-target="#insurance-pop">
+                  <label class="custom-control-label w-100 text-primary" for="insurance50">Recomended ($50) <i class="fas fa-info-circle text-muted hvr-icon"></i></label>
+                </div>
+              </div>
+              <div class="w-100 bg-light hvr-shadow hvr-icon-bob p-2 rounded mb-3">
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="insurance" id="insurance25" data-toggle="modal" data-target="#insurance-pop">
+                  <label class="custom-control-label w-100 text-success" for="insurance25">Moderate ($25) <i class="fas fa-info-circle text-muted hvr-icon"></i></label>
+                </div>
+              </div>
+              <div class="w-100 bg-light hvr-shadow hvr-icon-bob p-2 rounded mb-2">
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="insurance" id="insurance0" data-toggle="modal" data-target="#insurance-pop">
+                  <label class="custom-control-label w-100 text-orange" for="insurance0">Standard ($0) <i class="fas fa-info-circle text-muted hvr-icon"></i></label>
+                </div>
+              </div>
+              <div class="w-100 bg-light hvr-shadow hvr-icon-bob p-2 rounded mb-2">
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="insurance" id="insuranceala" data-toggle="modal" data-target="#insurance-pop">
+                  <label class="custom-control-label w-100 text-dark" for="insuranceala">Ala Caret</label>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+              
+                <h4 class="border-bottom mt-4 pb-2"><i class="fas fa-file-invoice-dollar fa-large mr-2 d-none"></i> Charges</h4>
+                <div class="row text-center mt-2">
+                  <div class="col border-right hvr-shadow">
+                    <h4>$30 - $60<br>
+                    <small>Mobilization Charges <i class="fas fa-info-circle text-muted d-none"></i></small></h4>
+                  </div>
+                  <div class="col hvr-shadow">
+                    <h4>$50 - $100<br>
+                    <small>Crew Charges <i class="fas fa-info-circle text-muted d-none"></i></small></h4>
+                  </div>
+                </div>
+
+
+            
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+  <script>
+/*var $ = function (selector) {
+return document.querySelector(selector);
+};
+var $$ = function (selector) {
+return document.querySelectorAll(selector);
+};
+var breadcrumb = $('.breadcrumb');
+var breadcrumbSteps = $$('.breadcrumb__step');
+[].forEach.call(breadcrumbSteps, function (item, index, array) {
+item.onclick = function () {
+for (var i = 0, l = array.length; i < l; i++) {if (window.CP.shouldStopExecution(0)) break;
+if (index >= i) {
+array[i].classList.add('breadcrumb__step--active');
+} else
+{
+array[i].classList.remove('breadcrumb__step--active');
+}
+}window.CP.exitedLoop(0);
+};
+});*/
+
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript"
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIUaBvvlXdLIxkhAVVqQJC7jhSg98g7NE&libraries=places"></script>
+
+<!--
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/asset/js/custom.js"></script>
+<script type="text/javascript" src="http://relo.thesiriussolutions.com/main/vendor/moment/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/materialize/js/materialize.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/air-datepicker/dist/js/datepicker.min.js"></script>
+<script src="http://relo.thesiriussolutions.com/air-datepicker/dist/js/i18n/datepicker.en.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.0.1/trianglify.min.js"></script>
+
+
+
+
+</body>
+</html>
